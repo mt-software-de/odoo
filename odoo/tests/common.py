@@ -70,7 +70,6 @@ _logger = logging.getLogger(__name__)
 # The odoo library is supposed already configured.
 ADDONS_PATH = odoo.tools.config['addons_path']
 HOST = '127.0.0.1'
-PORT = odoo.tools.config['http_port']
 # Useless constant, tests are aware of the content of demo data
 ADMIN_USER_ID = odoo.SUPERUSER_ID
 
@@ -702,15 +701,24 @@ class ChromeBrowser():
                     return bin_
 
         elif system == 'Windows':
-            # TODO: handle windows platform: https://stackoverflow.com/a/40674915
-            pass
+            bins = [
+                '%ProgramFiles%\\Google\\Chrome\\Application\\chrome.exe',
+                '%ProgramFiles(x86)%\\Google\\Chrome\\Application\\chrome.exe',
+                '%LocalAppData%\\Google\\Chrome\\Application\\chrome.exe',
+            ]
+            for bin_ in bins:
+                bin_ = os.path.expandvars(bin_)
+                if os.path.exists(bin_):
+                    return bin_
 
         raise unittest.SkipTest("Chrome executable not found")
 
     def _spawn_chrome(self, cmd):
-        if os.name != 'posix':
-            return
-        pid = os.fork()
+        if os.name == 'nt':
+            proc = subprocess.Popen(cmd, stderr=subprocess.DEVNULL)
+            pid = proc.pid
+        else:
+            pid = os.fork()
         if pid != 0:
             return pid
         else:
@@ -791,7 +799,7 @@ class ChromeBrowser():
             version : get chrome and dev tools version
             protocol : get the full protocol
         """
-        command = os.path.join('json', command).strip('/')
+        command = '/'.join(['json', command]).strip('/')
         url = werkzeug.urls.url_join('http://%s:%s/' % (HOST, self.devtools_port), command)
         self._logger.info("Issuing json command %s", url)
         delay = 0.1
@@ -1207,7 +1215,7 @@ class HttpCase(TransactionCase):
     def __init__(self, methodName='runTest'):
         super(HttpCase, self).__init__(methodName)
         # v8 api with correct xmlrpc exception handling.
-        self.xmlrpc_url = url_8 = 'http://%s:%d/xmlrpc/2/' % (HOST, PORT)
+        self.xmlrpc_url = url_8 = 'http://%s:%d/xmlrpc/2/' % (HOST, odoo.tools.config['http_port'])
         self.xmlrpc_common = xmlrpclib.ServerProxy(url_8 + 'common')
         self.xmlrpc_db = xmlrpclib.ServerProxy(url_8 + 'db')
         self.xmlrpc_object = xmlrpclib.ServerProxy(url_8 + 'object')
@@ -1245,7 +1253,7 @@ class HttpCase(TransactionCase):
     def url_open(self, url, data=None, files=None, timeout=10, headers=None):
         self.env['base'].flush()
         if url.startswith('/'):
-            url = "http://%s:%s%s" % (HOST, PORT, url)
+            url = "http://%s:%s%s" % (HOST, odoo.tools.config['http_port'], url)
         if data or files:
             return self.opener.post(url, data=data, files=files, timeout=timeout, headers=headers)
         return self.opener.get(url, timeout=timeout, headers=headers)
@@ -1323,7 +1331,7 @@ class HttpCase(TransactionCase):
 
         try:
             self.authenticate(login, login)
-            base_url = "http://%s:%s" % (HOST, PORT)
+            base_url = "http://%s:%s" % (HOST, odoo.tools.config['http_port'])
             ICP = self.env['ir.config_parameter']
             ICP.set_param('web.base.url', base_url)
             # flush updates to the database before launching the client side,
@@ -2286,7 +2294,7 @@ class O2MProxy(X2MProxy):
         del self._records[index]
         self._parent._perform_onchange([self._field])
 
-class M2MProxy(X2MProxy, collections.Sequence):
+class M2MProxy(X2MProxy, collections.abc.Sequence):
     """ M2MProxy()
 
     Behaves as a :class:`~collection.Sequence` of recordsets, can be

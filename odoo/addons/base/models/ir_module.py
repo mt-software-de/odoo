@@ -65,7 +65,7 @@ def assert_log_admin_access(method):
     def check_and_log(method, self, *args, **kwargs):
         user = self.env.user
         origin = request.httprequest.remote_addr if request else 'n/a'
-        log_data = (method.__name__, self.sudo().mapped('name'), user.login, user.id, origin)
+        log_data = (method.__name__, self.sudo().mapped('display_name'), user.login, user.id, origin)
         if not self.env.is_admin():
             _logger.warning('DENY access to module.%s on %s to user %s ID #%s via %s', *log_data)
             raise AccessDenied()
@@ -642,6 +642,16 @@ class Module(models.Model):
         self.update_list()
 
         todo = list(self)
+        if 'base' in self.mapped('name'):
+            # If an installed module is only present in the dependency graph through
+            # a new, uninstalled dependency, it will not have been selected yet.
+            # An update of 'base' should also update these modules, and as a consequence,
+            # install the new dependency.
+            todo.extend(self.search([
+                ('state', '=', 'installed'),
+                ('name', '!=', 'studio_customization'),
+                ('id', 'not in', self.ids),
+            ]))
         i = 0
         while i < len(todo):
             module = todo[i]

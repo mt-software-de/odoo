@@ -5896,10 +5896,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The quantity done for the product \"%s\" doesn't respect the rounding "
-"precision                                   defined on the unit of measure "
-"\"%s\". Please change the quantity done or the"
-"                                   rounding precision of your unit of "
-"measure."
+"precision defined on the unit of measure \"%s\". Please change the quantity "
+"done or the rounding precision of your unit of measure."
 msgstr ""
 
 #. module: stock
@@ -7157,6 +7155,15 @@ msgstr ""
 #: code:addons/stock/models/stock_picking.py:0
 #, python-format
 msgid "You need to supply a Lot/Serial number for product %s."
+msgstr ""
+
+#. module: stock
+#: code:addons/stock/models/stock_picking.py:0
+#, python-format
+msgid ""
+"You should not use an internal transfer to move some products between two "
+"warehouses. Instead, use two pickings: a delivery from %s and a receipt to "
+"%s"
 msgstr ""
 
 #. module: stock

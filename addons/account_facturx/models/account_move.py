@@ -179,6 +179,11 @@ class AccountMove(models.Model):
                 if elements[0].attrib.get('currencyID'):
                     currency_str = elements[0].attrib['currencyID']
                     currency = self.env.ref('base.%s' % currency_str.upper(), raise_if_not_found=False)
+                    if currency and not currency.active:
+                        raise UserError(
+                            _('The currency (%s) of the document you are uploading is not active in this database.\n'
+                              'Please activate it before trying again to import.') % currency.name
+                        )
                     if currency != self.env.company.currency_id and currency.active:
                         invoice_form.currency_id = currency
 
@@ -239,6 +244,24 @@ class AccountMove(models.Model):
                                 invoice_line_form.price_unit = float(line_elements[0].text) / float(quantity_elements[0].text)
                             else:
                                 invoice_line_form.price_unit = float(line_elements[0].text)
+                            # For Gross price, we need to check if a discount must be taken into account
+                            discount_elements = element.xpath('.//ram:AppliedTradeAllowanceCharge',
+                                                          namespaces=tree.nsmap)
+                            if discount_elements:
+                                discount_percent_elements = element.xpath(
+                                    './/ram:AppliedTradeAllowanceCharge/ram:CalculationPercent', namespaces=tree.nsmap)
+                                if discount_percent_elements:
+                                    invoice_line_form.discount = float(discount_percent_elements[0].text)
+                                else:
+                                    # if discount not available, it will be computed from the gross and net prices.
+                                    net_price_elements = element.xpath('.//ram:NetPriceProductTradePrice/ram:ChargeAmount',
+                                                                  namespaces=tree.nsmap)
+                                    if net_price_elements:
+                                        quantity_elements = element.xpath(
+                                            './/ram:NetPriceProductTradePrice/ram:BasisQuantity', namespaces=tree.nsmap)
+                                        net_unit_price = float(net_price_elements[0].text) / float(quantity_elements[0].text) \
+                                            if quantity_elements else float(net_price_elements[0].text)
+                                        invoice_line_form.discount = (invoice_line_form.price_unit - net_unit_price) / invoice_line_form.price_unit * 100.0
                         else:
                             line_elements = element.xpath('.//ram:NetPriceProductTradePrice/ram:ChargeAmount', namespaces=tree.nsmap)
                             if line_elements:
@@ -247,10 +270,6 @@ class AccountMove(models.Model):
                                     invoice_line_form.price_unit = float(line_elements[0].text) / float(quantity_elements[0].text)
                                 else:
                                     invoice_line_form.price_unit = float(line_elements[0].text)
-                        # Discount.
-                        line_elements = element.xpath('.//ram:AppliedTradeAllowanceCharge/ram:CalculationPercent', namespaces=tree.nsmap)
-                        if line_elements:
-                            invoice_line_form.discount = float(line_elements[0].text)
 
                         # Taxes
                         line_elements = element.xpath('.//ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:RateApplicablePercent', namespaces=tree.nsmap)

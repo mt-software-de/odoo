@@ -4,7 +4,8 @@
 """ Models registries.
 
 """
-from collections import Mapping, defaultdict, deque
+from collections import defaultdict, deque
+from collections.abc import Mapping
 from contextlib import closing, contextmanager
 from functools import partial
 from operator import attrgetter
@@ -100,6 +101,7 @@ class Registry(Mapping):
             registry._init = False
             registry.ready = True
             registry.registry_invalidated = bool(update_module)
+            registry.new = registry.init = registry.registries = None
 
         return registry
 
