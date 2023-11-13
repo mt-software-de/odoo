@@ -72,12 +72,25 @@ class CompanyLDAP(models.Model):
         :return: an LDAP object
         """
 
-        uri = 'ldap://%s:%d' % (conf['ldap_server'], conf['ldap_server_port'])
+        uri = 'ldaps://%s:%d' % (conf['ldap_server'], conf['ldap_server_port'])
 
         connection = ldap.initialize(uri)
-        ldap_chase_ref_disabled = self.env['ir.config_parameter'].sudo().get_param('auth_ldap.disable_chase_ref')
-        if str2bool(ldap_chase_ref_disabled):
-            connection.set_option(ldap.OPT_REFERRALS, ldap.OPT_OFF)
+        
+        ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)
+        """
+        Q: My script bound to MS Active Directory but a a search operation resu
+        
+        A: When searching from the domain level, MS AD returns referrals (search contin
+        
+        Therefore, per default, libldap automatically chases the referrals internally w
+        
+        So, the best thing to do is to switch this behaviour off:
+        """
+        connection.set_option(ldap.OPT_REFERRALS, 0)
+
+        #ldap_chase_ref_disabled = self.env['ir.config_parameter'].sudo().get_param('auth_ldap.disable_chase_ref')
+        #if str2bool(ldap_chase_ref_disabled):
+        #    connection.set_option(ldap.OPT_REFERRALS, ldap.OPT_OFF)
         if conf['ldap_tls']:
             connection.start_tls_s()
         return connection
