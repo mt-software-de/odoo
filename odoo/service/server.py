@@ -1185,7 +1185,7 @@ def load_test_file_py(registry, test_file):
                     _logger.log(logging.INFO, 'running tests %s.', mod_mod.__name__)
                     suite(registry._assertion_report)
                     if not registry._assertion_report.wasSuccessful():
-                        _logger.error('%s: at least one error occurred in a test', test_file)
+                        raise Exception('%s: at least one error occurred in a test', test_file)
                     return
     finally:
         threading.currentThread().testing = False
