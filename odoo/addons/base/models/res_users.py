@@ -1027,8 +1027,17 @@ class GroupsImplied(models.Model):
         # Compute the transitive closure recursively. Note that the performance
         # is good, because the record cache behaves as a memo (the field is
         # never computed twice on a given group.)
+
         for g in self:
-            g.trans_implied_ids = g.implied_ids | g.implied_ids.trans_implied_ids
+            g.trans_implied_ids = g.implied_ids._compute_recursive_trans_implied()
+
+    def _compute_recursive_trans_implied(self):
+        result = self.env["res.groups"]
+        for rec in self:
+            if rec.implied_ids:
+                result |= rec.implied_ids._compute_recursive_trans_implied()
+            result |= rec
+        return result
 
     @api.model_create_multi
     def create(self, vals_list):
