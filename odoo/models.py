@@ -3668,7 +3668,8 @@ Fields:
             # If there are only fields that do not trigger _write (e.g. only
             # determine inverse), the below ensures that `write_date` and
             # `write_uid` are updated (`test_orm.py`, `test_write_date`)
-            if self._log_access and self.ids:
+            log_access = self._get_context_log_access()            
+            if self._log_access and log_access and self.ids:
                 towrite = env.all.towrite[self._name]
                 for record in real_recs:
                     towrite[record.id]['write_uid'] = self.env.uid
@@ -3736,6 +3737,12 @@ Fields:
             self._check_company()
         return True
 
+    def _get_context_log_access(self):
+        log_access = True
+        if 'log_access' in self.env.context:
+            log_access = self.env.context.get('log_access', {}).get(self._name, True)
+        return log_access
+
     def _write(self, vals):
         # low-level implementation of write()
         if not self:
@@ -3749,9 +3756,11 @@ Fields:
 
         # determine SQL values
         columns = []                    # list of (column_name, format, value)
+        
+        log_access = self._get_context_log_access()
 
         for name, val in sorted(vals.items()):
-            if self._log_access and name in LOG_ACCESS_COLUMNS and not val:
+            if name in LOG_ACCESS_COLUMNS and not val:
                 continue
             field = self._fields[name]
             assert field.store
@@ -3762,7 +3771,7 @@ Fields:
             assert field.column_type
             columns.append((name, field.column_format, val))
 
-        if self._log_access:
+        if self._log_access and log_access or 'write_date' in vals or 'write_uid' in vals:
             if not vals.get('write_uid'):
                 columns.append(('write_uid', '%s', self._uid))
             if not vals.get('write_date'):
