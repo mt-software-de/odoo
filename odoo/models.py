@@ -3039,6 +3039,10 @@ Fields:
         """
         data = [(record, {'id': record._ids[0]}) for record in self]
         use_name_get = (load == '_classic_read')
+
+        if 'use_name_get' in self.env.context:
+            use_name_get = self.env.context.get('use_name_get')
+
         for name in fnames:
             convert = self._fields[name].convert_to_read
             for record, vals in data:
