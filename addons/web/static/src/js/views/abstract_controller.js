@@ -406,7 +406,7 @@ var AbstractController = mvc.Controller.extend(ActionMixin, {
             this.renderButtons();
         }
         const promises = [this._renderBanner()];
-        if (params.shouldUpdateSearchComponents !== false) {
+        if (params && params.shouldUpdateSearchComponents !== false) {
             if (this.withControlPanel) {
                 this._updateControlPanelProps(state);
                 if (params.breadcrumbs) {
