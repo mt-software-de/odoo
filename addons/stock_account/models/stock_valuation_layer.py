@@ -132,3 +132,7 @@ class StockValuationLayer(models.Model):
         # participant eval: check if analytic usage is working
         for svl in self:
             svl.stock_move_id._account_analytic_entry_move()
+
+    def _validate_entries(self):
+        self._validate_accounting_entries()
+        self._validate_analytic_accounting_entries()
