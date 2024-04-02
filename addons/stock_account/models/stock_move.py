@@ -264,9 +264,6 @@ class StockMove(models.Model):
 
         res = super(StockMove, self)._action_done(cancel_backorder=cancel_backorder)
 
-        # '_action_done' might have deleted some exploded stock moves
-        valued_moves = {value_type: moves.exists() for value_type, moves in valued_moves.items()}
-
         # '_action_done' might have created an extra move to be valued
         for move in res - self:
             for valued_type in self._get_valued_types():
@@ -281,13 +278,8 @@ class StockMove(models.Model):
                 todo_valued_moves._sanity_check_for_valuation()
                 stock_valuation_layers |= getattr(todo_valued_moves, '_create_%s_svl' % valued_type)()
 
-
-        for svl in stock_valuation_layers:
-            if not svl.with_company(svl.company_id).product_id.valuation == 'real_time':
-                continue
-            if svl.currency_id.is_zero(svl.value):
-                continue
-            svl.stock_move_id.with_company(svl.company_id)._account_entry_move(svl.quantity, svl.description, svl.id, svl.value)
+        stock_valuation_layers._validate_accounting_entries()
+        stock_valuation_layers._validate_analytic_accounting_entries()
 
         stock_valuation_layers._check_company()
 
@@ -382,7 +374,7 @@ class StockMove(models.Model):
     def _get_dest_account(self, accounts_data):
         return self.location_dest_id.valuation_in_account_id.id or accounts_data['stock_output'].id
 
-    def _prepare_account_move_line(self, qty, cost, credit_account_id, debit_account_id, description):
+    def _prepare_account_move_line(self, qty, cost, credit_account_id, debit_account_id, svl_id, description):
         """
         Generate the account.move.line values to post to track the stock valuation difference due to the
         processing of the given quant.
@@ -395,11 +387,11 @@ class StockMove(models.Model):
         credit_value = debit_value
 
         valuation_partner_id = self._get_partner_id_for_valuation_lines()
-        res = [(0, 0, line_vals) for line_vals in self._generate_valuation_lines_data(valuation_partner_id, qty, debit_value, credit_value, debit_account_id, credit_account_id, description).values()]
+        res = [(0, 0, line_vals) for line_vals in self._generate_valuation_lines_data(valuation_partner_id, qty, debit_value, credit_value, debit_account_id, credit_account_id, svl_id, description).values()]
 
         return res
 
-    def _generate_valuation_lines_data(self, partner_id, qty, debit_value, credit_value, debit_account_id, credit_account_id, description):
+    def _generate_valuation_lines_data(self, partner_id, qty, debit_value, credit_value, debit_account_id, credit_account_id, svl_id, description):
         # This method returns a dictionary to provide an easy extension hook to modify the valuation lines (see purchase for an example)
         self.ensure_one()
         debit_line_vals = {
@@ -479,12 +471,13 @@ class StockMove(models.Model):
     def _account_entry_move(self, qty, description, svl_id, cost):
         """ Accounting Valuation Entries """
         self.ensure_one()
+        am_vals = []
         if self.product_id.type != 'product':
             # no stock valuation for consumable products
-            return False
+            return am_vals
         if self.restrict_partner_id and self.restrict_partner_id != self.company_id.partner_id:
             # if the move isn't owned by the company, we don't make any valuation
-            return False
+            return am_vals
 
         company_from = self._is_out() and self.mapped('move_line_ids.location_id.company_id') or False
         company_to = self._is_in() and self.mapped('move_line_ids.location_dest_id.company_id') or False
@@ -494,39 +487,34 @@ class StockMove(models.Model):
         # warehouse of the same company, the transit location belongs to this company, so we don't need to create accounting entries
         if self._is_in():
             if self._is_returned(valued_type='in'):
-                self.with_company(company_to)._create_account_move_line(acc_dest, acc_valuation, journal_id, qty, description, svl_id, cost)
+                am_vals.append(self.with_company(company_to)._prepare_account_move_vals(acc_dest, acc_valuation, journal_id, qty, description, svl_id, cost))
             else:
-                self.with_company(company_to)._create_account_move_line(acc_src, acc_valuation, journal_id, qty, description, svl_id, cost)
+                am_vals.append(self.with_company(company_to)._prepare_account_move_vals(acc_src, acc_valuation, journal_id, qty, description, svl_id, cost))
 
         # Create Journal Entry for products leaving the company
         if self._is_out():
             cost = -1 * cost
             if self._is_returned(valued_type='out'):
-                self.with_company(company_from)._create_account_move_line(acc_valuation, acc_src, journal_id, qty, description, svl_id, cost)
+                am_vals.append(self.with_company(company_from)._prepare_account_move_vals(acc_valuation, acc_src, journal_id, qty, description, svl_id, cost))
             else:
-                self.with_company(company_from)._create_account_move_line(acc_valuation, acc_dest, journal_id, qty, description, svl_id, cost)
+                am_vals.append(self.with_company(company_from)._prepare_account_move_vals(acc_valuation, acc_dest, journal_id, qty, description, svl_id, cost))
 
         if self.company_id.anglo_saxon_accounting:
             # Creates an account entry from stock_input to stock_output on a dropship move. https://github.com/odoo/odoo/issues/12687
             if self._is_dropshipped():
                 if cost > 0:
-                    self.with_company(self.company_id)._create_account_move_line(acc_src, acc_valuation, journal_id, qty, description, svl_id, cost)
+                    am_vals.append(self.with_company(self.company_id)._prepare_account_move_vals(acc_src, acc_valuation, journal_id, qty, description, svl_id, cost))
                 else:
                     cost = -1 * cost
-                    self.with_company(self.company_id)._create_account_move_line(acc_valuation, acc_dest, journal_id, qty, description, svl_id, cost)
+                    am_vals.append(self.with_company(self.company_id)._prepare_account_move_vals(acc_valuation, acc_dest, journal_id, qty, description, svl_id, cost))
             elif self._is_dropshipped_returned():
-                if cost > 0 and self.location_dest_id._should_be_valued():
-                    self.with_company(self.company_id)._create_account_move_line(acc_valuation, acc_src, journal_id, qty, description, svl_id, cost)
-                elif cost > 0:
-                    self.with_company(self.company_id)._create_account_move_line(acc_dest, acc_valuation, journal_id, qty, description, svl_id, cost)
+                if cost > 0:
+                    am_vals.append(self.with_company(self.company_id)._prepare_account_move_vals(acc_valuation, acc_src, journal_id, qty, description, svl_id, cost))
                 else:
                     cost = -1 * cost
-                    self.with_company(self.company_id)._create_account_move_line(acc_valuation, acc_src, journal_id, qty, description, svl_id, cost)
+                    am_vals.append(self.with_company(self.company_id)._prepare_account_move_vals(acc_dest, acc_valuation, journal_id, qty, description, svl_id, cost))
 
-        if self.company_id.anglo_saxon_accounting:
-            # Eventually reconcile together the invoice and valuation accounting entries on the stock interim accounts
-            self._get_related_invoices()._stock_account_anglo_saxon_reconcile_valuation(product=self.product_id)
-
+        return am_vals
     def _get_related_invoices(self):  # To be overridden in purchase and sale_stock
         """ This method is overrided in both purchase and sale_stock modules to adapt
         to the way they mix stock moves with invoices.
@@ -539,3 +527,89 @@ class StockMove(models.Model):
             return self.location_id and self.location_id.usage == 'customer'   # goods returned from customer
         if valued_type == 'out':
             return self.location_dest_id and self.location_dest_id.usage == 'supplier'   # goods returned to supplier
+
+    def _prepare_account_move_vals(self, credit_account_id, debit_account_id, journal_id, qty, description, svl_id, cost):
+        self.ensure_one()
+        valuation_partner_id = self._get_partner_id_for_valuation_lines()
+        move_ids = self._prepare_account_move_line(qty, cost, credit_account_id, debit_account_id, svl_id, description)
+        svl = self.env['stock.valuation.layer'].browse(svl_id)
+        if self.env.context.get('force_period_date'):
+            date = self.env.context.get('force_period_date')
+        elif svl.account_move_line_id:
+            date = svl.account_move_line_id.date
+        else:
+            date = fields.Date.context_today(self)
+        return {
+            'journal_id': journal_id,
+            'line_ids': move_ids,
+            'partner_id': valuation_partner_id,
+            'date': date,
+            'ref': description,
+            'stock_move_id': self.id,
+            'stock_valuation_layer_ids': [(6, None, [svl_id])],
+            'move_type': 'entry',
+        }
+
+    def _account_analytic_entry_move(self):
+        analytic_lines_vals = []
+        moves_to_link = []
+        for move in self:
+            analytic_line_vals = move._prepare_analytic_lines()
+            if not analytic_line_vals:
+                continue
+            moves_to_link.append(move.id)
+            analytic_lines_vals.append(analytic_line_vals)
+        analytic_lines = self.env['account.analytic.line'].sudo().create(analytic_lines_vals)
+        for move_id, analytic_line in zip(moves_to_link, analytic_lines):
+            self.env['stock.move'].browse(
+                move_id).analytic_account_line_id = analytic_line
+
+    def _prepare_analytic_lines(self):
+        self.ensure_one()
+        if not self._get_analytic_account():
+            return False
+
+        if self.state in ['cancel', 'draft']:
+            return False
+
+        if self.state != 'done':
+            unit_amount = self.product_uom._compute_quantity(
+                self.quantity_done, self.product_id.uom_id)
+            # Falsy in FIFO but since it's an estimation we don't require exact correct cost. Otherwise
+            # we would have to recompute all the analytic estimation at each out.
+            amount = - unit_amount * self.product_id.standard_price
+        elif self.product_id.valuation == 'real_time' and not self._ignore_automatic_valuation():
+            accounts_data = self.product_id.product_tmpl_id.get_product_accounts()
+            account_valuation = accounts_data.get('stock_valuation', False)
+            analytic_line_vals = self.stock_valuation_layer_ids.account_move_id.line_ids.filtered(
+                lambda l: l.account_id == account_valuation)._prepare_analytic_lines()
+            amount = - sum(sum(vals['amount'] for vals in lists) for lists in analytic_line_vals)
+            unit_amount = - sum(sum(vals['unit_amount'] for vals in lists) for lists in analytic_line_vals)
+        elif sum(self.stock_valuation_layer_ids.mapped('quantity')):
+            amount = sum(self.stock_valuation_layer_ids.mapped('value'))
+            unit_amount = - sum(self.stock_valuation_layer_ids.mapped('quantity'))
+        if self.analytic_account_line_id:
+            self.analytic_account_line_id.unit_amount = unit_amount
+            self.analytic_account_line_id.amount = amount
+            return False
+        elif amount:
+            return self._generate_analytic_lines_data(  # ToDo: where?
+                unit_amount, amount)
+
+    def _get_analytic_account(self):
+        return False
+
+    def _generate_analytic_lines_data(self, unit_amount, amount):
+        self.ensure_one()
+        account_id = self._get_analytic_account()
+        return {
+            'name': self.name,
+            'amount': amount,
+            'account_id': account_id.id,
+            'unit_amount': unit_amount,
+            'product_id': self.product_id.id,
+            'product_uom_id': self.product_id.uom_id.id,
+            'company_id': self.company_id.id,
+            'ref': self._description,
+            'category': 'other',
+        }
