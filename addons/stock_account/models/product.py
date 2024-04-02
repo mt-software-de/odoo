@@ -373,7 +373,6 @@ class ProductProduct(models.Model):
         """Compensate layer valued at an estimated price with the price of future receipts
         if any. If the estimated price is equals to the real price, no layer is created but
         the original layer is marked as compensated.
-
         :param company: recordset of `res.company` to limit the execution of the vacuum
         """
         self.ensure_one()
@@ -381,17 +380,19 @@ class ProductProduct(models.Model):
             company = self.env.company
         svls_to_vacuum = self.env['stock.valuation.layer'].sudo().search([
             ('product_id', '=', self.id),
-            ('remaining_qty', '<', 0),
+            ('remaining_qty', '<', 0), 
             ('stock_move_id', '!=', False),
             ('company_id', '=', company.id),
         ], order='create_date, id')
         if not svls_to_vacuum:
             return
 
-        domain = [
+        as_svls = []
+
+        domain = [ 
             ('company_id', '=', company.id),
             ('product_id', '=', self.id),
-            ('remaining_qty', '>', 0),
+            ('remaining_qty', '>', 0), 
             ('create_date', '>=', svls_to_vacuum[0].create_date),
         ]
         all_candidates = self.env['stock.valuation.layer'].sudo().search(domain)
@@ -406,8 +407,8 @@ class ProductProduct(models.Model):
             if not candidates:
                 break
             qty_to_take_on_candidates = abs(svl_to_vacuum.remaining_qty)
-            qty_taken_on_candidates = 0
-            tmp_value = 0
+            qty_taken_on_candidates = 0 
+            tmp_value = 0 
             for candidate in candidates:
                 qty_taken_on_candidate = min(candidate.remaining_qty, qty_to_take_on_candidates)
                 qty_taken_on_candidates += qty_taken_on_candidate
@@ -417,12 +418,12 @@ class ProductProduct(models.Model):
                 value_taken_on_candidate = candidate.currency_id.round(value_taken_on_candidate)
                 new_remaining_value = candidate.remaining_value - value_taken_on_candidate
 
-                candidate_vals = {
+                candidate_vals = { 
                     'remaining_qty': candidate.remaining_qty - qty_taken_on_candidate,
                     'remaining_value': new_remaining_value
                 }
                 candidate.write(candidate_vals)
-                if not (candidate.remaining_qty > 0):
+                if not (candidate.remaining_qty > 0): 
                     all_candidates -= candidate
 
                 qty_to_take_on_candidates -= qty_taken_on_candidate
@@ -452,25 +453,24 @@ class ProductProduct(models.Model):
                 'remaining_qty': 0,
                 'stock_move_id': move.id,
                 'company_id': move.company_id.id,
-                'description': 'Revaluation of %s (negative inventory)' % (move.picking_id.name or move.name),
+                'description': 'Revaluation of %s (negative inventory)' % move.picking_id.name or move.name,
                 'stock_valuation_layer_id': svl_to_vacuum.id,
             }
             vacuum_svl = self.env['stock.valuation.layer'].sudo().create(vals)
 
-            # Create the account move.
             if self.valuation != 'real_time':
                 continue
-            vacuum_svl.stock_move_id._account_entry_move(
-                vacuum_svl.quantity, vacuum_svl.description, vacuum_svl.id, vacuum_svl.value
-            )
-            # Create the related expense entry
-            self._create_fifo_vacuum_anglo_saxon_expense_entry(vacuum_svl, svl_to_vacuum)
+            as_svls.append((vacuum_svl, svl_to_vacuum))
 
         # If some negative stock were fixed, we need to recompute the standard price.
         product = self.with_company(company.id)
-        if product.cost_method == 'average' and not float_is_zero(product.quantity_svl, precision_rounding=self.uom_id.rounding):
+        if product.product_tmpl_id.cost_method == 'average' and not float_is_zero(product.quantity_svl, precision_rounding=self.uom_id.rounding):
             product.sudo().with_context(disable_auto_svl=True).write({'standard_price': product.value_svl / product.quantity_svl})
 
+        self.env['stock.valuation.layer'].browse(x[0].id for x in as_svls)._validate_accounting_entries()
+
+        for vacuum_svl, svl_to_vacuum in as_svls:
+            self._create_fifo_vacuum_anglo_saxon_expense_entry(vacuum_svl, svl_to_vacuum)
 
     def _create_fifo_vacuum_anglo_saxon_expense_entry(self, vacuum_svl, svl_to_vacuum):
         """ When product is delivered and invoiced while you don't have units in stock anymore, there are chances of that

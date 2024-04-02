@@ -30,6 +30,8 @@ class StockValuationLayer(models.Model):
     stock_valuation_layer_ids = fields.One2many('stock.valuation.layer', 'stock_valuation_layer_id')
     stock_move_id = fields.Many2one('stock.move', 'Stock Move', readonly=True, check_company=True, index=True)
     account_move_id = fields.Many2one('account.move', 'Journal Entry', readonly=True, check_company=True, index=True)
+    account_move_line_id = fields.Many2one('account.move.line', 'Invoice Line', readonly=True, check_company=True, index=True)
+    price_diff_value = fields.Float('Invoice value correction with invoice currency')
 
     def init(self):
         tools.create_index(
@@ -106,3 +108,27 @@ class StockValuationLayer(models.Model):
             new_valuation = unit_cost * new_valued_qty
 
         return new_valued_qty, new_valuation
+
+    def _validate_accounting_entries(self):
+        am_vals = []
+        for svl in self:
+            if not svl.product_id.valuation == 'real_time':
+                continue
+            if svl.currency_id.is_zero(svl.value):
+                continue
+            move = svl.stock_move_id
+            if not move:
+                move = svl.stock_valuation_layer_id.stock_move_id
+            am_vals += move._account_entry_move(svl.quantity, svl.description, svl.id, svl.value)
+        if am_vals:
+            account_moves = self.env['account.move'].sudo().create(am_vals)
+            account_moves._post()
+        for svl in self:
+            # Eventually reconcile together the invoice and valuation accounting entries on the stock interim accounts
+            if svl.company_id.anglo_saxon_accounting:
+                svl.stock_move_id._get_related_invoices()._stock_account_anglo_saxon_reconcile_valuation(product=svl.product_id)
+
+    def _validate_analytic_accounting_entries(self):
+        # participant eval: check if analytic usage is working
+        for svl in self:
+            svl.stock_move_id._account_analytic_entry_move()
