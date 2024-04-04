@@ -369,6 +369,23 @@ class ProductProduct(models.Model):
             }
         return vals
 
+    def _prepare_fifo_vacuum_valuation_values(self, svl_to_vacuum, corrected_value):
+        move = svl_to_vacuum.stock_move_id
+        return {
+            'product_id': self.id,
+            'value': corrected_value,
+            'unit_cost': 0,
+            'quantity': 0,
+            'remaining_qty': 0,
+            'stock_move_id': move.id,
+            'company_id': move.company_id.id,
+            'description': 'Revaluation of %s (negative inventory)' % (move.picking_id.name or move.name),
+            'stock_valuation_layer_id': svl_to_vacuum.id,
+        }
+
+    def _prepare_fifo_vacuum_product_values(self):
+        return {'standard_price': self.value_svl / self.quantity_svl}
+
     def _run_fifo_vacuum(self, company=None):
         """Compensate layer valued at an estimated price with the price of future receipts
         if any. If the estimated price is equals to the real price, no layer is created but
@@ -443,18 +460,7 @@ class ProductProduct(models.Model):
                 continue
 
             corrected_value = svl_to_vacuum.currency_id.round(corrected_value)
-            move = svl_to_vacuum.stock_move_id
-            vals = {
-                'product_id': self.id,
-                'value': corrected_value,
-                'unit_cost': 0,
-                'quantity': 0,
-                'remaining_qty': 0,
-                'stock_move_id': move.id,
-                'company_id': move.company_id.id,
-                'description': 'Revaluation of %s (negative inventory)' % (move.picking_id.name or move.name),
-                'stock_valuation_layer_id': svl_to_vacuum.id,
-            }
+            vals = self._prepare_fifo_vacuum_valuation_values(corrected_value, svl_to_vacuum)
             vacuum_svl = self.env['stock.valuation.layer'].sudo().create(vals)
 
             # Create the account move.
@@ -469,8 +475,8 @@ class ProductProduct(models.Model):
         # If some negative stock were fixed, we need to recompute the standard price.
         product = self.with_company(company.id)
         if product.cost_method == 'average' and not float_is_zero(product.quantity_svl, precision_rounding=self.uom_id.rounding):
-            product.sudo().with_context(disable_auto_svl=True).write({'standard_price': product.value_svl / product.quantity_svl})
-
+            product_values = self._prepare_fifo_vacuum_product_values()
+            product.sudo().with_context(disable_auto_svl=True).write(product_values)
 
     def _create_fifo_vacuum_anglo_saxon_expense_entry(self, vacuum_svl, svl_to_vacuum):
         """ When product is delivered and invoiced while you don't have units in stock anymore, there are chances of that

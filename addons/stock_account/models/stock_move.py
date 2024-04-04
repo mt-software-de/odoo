@@ -152,12 +152,7 @@ class StockMove(models.Model):
             'description': self.reference and '%s - %s' % (self.reference, self.product_id.name) or self.product_id.name,
         }
 
-    def _create_in_svl(self, forced_quantity=None):
-        """Create a `stock.valuation.layer` from `self`.
-
-        :param forced_quantity: under some circunstances, the quantity to value is different than
-            the initial demand of the move (Default value = None)
-        """
+    def _get_in_svl_vals(self, forced_quantity=None):
         svl_vals_list = []
         for move in self:
             move = move.with_company(move.company_id)
@@ -173,14 +168,18 @@ class StockMove(models.Model):
             if forced_quantity:
                 svl_vals['description'] = 'Correction of %s (modification of past move)' % move.picking_id.name or move.name
             svl_vals_list.append(svl_vals)
-        return self.env['stock.valuation.layer'].sudo().create(svl_vals_list)
+        return svl_vals_list
 
-    def _create_out_svl(self, forced_quantity=None):
+    def _create_in_svl(self, forced_quantity=None):
         """Create a `stock.valuation.layer` from `self`.
 
         :param forced_quantity: under some circunstances, the quantity to value is different than
             the initial demand of the move (Default value = None)
         """
+        svl_vals_list = self._get_in_svl_vals(forced_quantity)
+        return self.env['stock.valuation.layer'].sudo().create(svl_vals_list)
+
+    def _get_out_svl_vals(self, forced_quantity):
         svl_vals_list = []
         for move in self:
             move = move.with_company(move.company_id)
@@ -196,14 +195,18 @@ class StockMove(models.Model):
                 svl_vals['description'] = 'Correction of %s (modification of past move)' % move.picking_id.name or move.name
             svl_vals['description'] += svl_vals.pop('rounding_adjustment', '')
             svl_vals_list.append(svl_vals)
-        return self.env['stock.valuation.layer'].sudo().create(svl_vals_list)
+        return svl_vals_list
 
-    def _create_dropshipped_svl(self, forced_quantity=None):
+    def _create_out_svl(self, forced_quantity=None):
         """Create a `stock.valuation.layer` from `self`.
 
         :param forced_quantity: under some circunstances, the quantity to value is different than
             the initial demand of the move (Default value = None)
         """
+        svl_vals_list = self._get_out_svl_vals(forced_quantity)
+        return self.env['stock.valuation.layer'].sudo().create(svl_vals_list)
+
+    def _get_dropshipped_svl_vals(self, forced_quantity):
         svl_vals_list = []
         for move in self:
             move = move.with_company(move.company_id)
@@ -238,7 +241,15 @@ class StockMove(models.Model):
                 }
                 out_vals.update(common_vals)
                 svl_vals_list.append(out_vals)
+        return svl_vals_list
 
+    def _create_dropshipped_svl(self, forced_quantity=None):
+        """Create a `stock.valuation.layer` from `self`.
+
+        :param forced_quantity: under some circunstances, the quantity to value is different than
+            the initial demand of the move (Default value = None)
+        """
+        svl_vals_list = self._get_dropshipped_svl_vals(forced_quantity)
         return self.env['stock.valuation.layer'].sudo().create(svl_vals_list)
 
     def _create_dropshipped_returned_svl(self, forced_quantity=None):
