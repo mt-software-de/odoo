@@ -13,19 +13,32 @@ class StockMoveLine(models.Model):
     # -------------------------------------------------------------------------
     @api.model_create_multi
     def create(self, vals_list):
-        move_lines = super(StockMoveLine, self).create(vals_list)
+        analytic_move_to_recompute = set()
+        # as this function became monkey patch (via _register_hook)
+        # and thus replaced v14 function, the type of super needs to be
+        # the class where the (now patched) v14 function was defined
+        move_lines = super(StockMoveLineAccount, self).create(vals_list)
         for move_line in move_lines:
+            move = move_line.move_id
+            analytic_move_to_recompute.add(move.id)
             if move_line.state != 'done':
                 continue
-            move = move_line.move_id
             rounding = move.product_id.uom_id.rounding
             diff = move.product_uom._compute_quantity(move_line.qty_done, move.product_id.uom_id)
             if float_is_zero(diff, precision_rounding=rounding):
                 continue
             self._create_correction_svl(move, diff)
+        if analytic_move_to_recompute:
+            self.env['stock.move'].browse(
+                analytic_move_to_recompute)._account_analytic_entry_move()
         return move_lines
 
     def write(self, vals):
+        analytic_move_to_recompute = set()
+        if 'qty_done' in vals or 'move_id' in vals:
+            for move_line in self:
+                move_id = vals.get('move_id') if vals.get('move_id') else move_line.move_id.id
+                analytic_move_to_recompute.add(move_id)
         if 'qty_done' in vals:
             for move_line in self:
                 if move_line.state != 'done':
@@ -36,7 +49,13 @@ class StockMoveLine(models.Model):
                 if float_is_zero(diff, precision_rounding=rounding):
                     continue
                 self._create_correction_svl(move, diff)
-        return super(StockMoveLine, self).write(vals)
+        # as this function became monkey patch (via _register_hook)
+        # and thus replaced v14 function, the type of super needs to be
+        # the class where the (now patched) v14 function was defined
+        res = super(StockMoveLineAccount, self).write(vals)
+        if analytic_move_to_recompute:
+            self.env['stock.move'].browse(analytic_move_to_recompute)._account_analytic_entry_move()
+        return res 
 
     # -------------------------------------------------------------------------
     # SVL creation helpers
@@ -56,7 +75,4 @@ class StockMoveLine(models.Model):
         elif move._is_dropshipped() and diff < 0 or move._is_dropshipped_returned() and diff > 0:
             stock_valuation_layers |= move._create_dropshipped_returned_svl(forced_quantity=abs(diff))
 
-        for svl in stock_valuation_layers:
-            if not svl.product_id.valuation == 'real_time':
-                continue
-            svl.stock_move_id._account_entry_move(svl.quantity, svl.description, svl.id, svl.value)
+        stock_valuation_layers._validate_accounting_entries()
