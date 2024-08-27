@@ -135,10 +135,10 @@ class StockLandedCost(models.Model):
                     valuation_layer = line._create_in_landed_costs_svl(cost_to_add, linked_layer)
                     linked_layer.remaining_value += cost_to_add
                     valuation_layer_ids.append(valuation_layer.id)
-                    # Update the AVCO
-                    product = line.move_id.product_id
-                    if product.cost_method == 'average':
-                        product_ids_to_update.add(product.id)
+                # Update the AVCO
+                product = line.move_id.product_id
+                if product.cost_method == 'average':
+                    product_ids_to_update.add(product.id)
                 # Products with manual inventory valuation are ignored because they do not need to create journal entries.
                 if product.valuation != "real_time":
                     continue
