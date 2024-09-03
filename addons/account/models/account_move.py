@@ -1675,7 +1675,7 @@ class AccountMove(models.Model):
         self.ensure_one()
 
         reconciled_vals = []
-        for partial, amount, counterpart_line in self._get_reconciled_invoices_partials():
+        for partial, amount, counterpart_line in self.sudo()._get_reconciled_invoices_partials():
             if counterpart_line.move_id.ref:
                 reconciliation_ref = '%s (%s)' % (counterpart_line.move_id.name, counterpart_line.move_id.ref)
             else:
