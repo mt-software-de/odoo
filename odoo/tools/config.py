@@ -492,6 +492,13 @@ class configmanager(object):
                 'shell_interface', 'limit_time_worker_cron',
         ]
 
+        dev_keys = ["addons_path", "max_cron_threads", "log_level", "dev_mode", "db_host", "db_user", "db_password", "db_port", "server_wide_modules", "workers"]
+        for arg in dev_keys:
+            env_key = arg.upper()
+            value = os.environ.get(env_key)
+            if value:
+                self.options[arg] = value
+
         for arg in keys:
             # Copy the command-line argument (except the special case for log_handler, due to
             # action=append requiring a real default, so we cannot use the my_default workaround)
