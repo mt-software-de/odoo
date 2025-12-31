@@ -1675,7 +1675,8 @@ class AccountMove(models.Model):
         self.ensure_one()
 
         reconciled_vals = []
-        for partial, amount, counterpart_line in self._get_reconciled_invoices_partials():
+        # TODO UDO-1637
+        for partial, amount, counterpart_line in self.sudo()._get_reconciled_invoices_partials():
             if counterpart_line.move_id.ref:
                 reconciliation_ref = '%s (%s)' % (counterpart_line.move_id.name, counterpart_line.move_id.ref)
             else:
@@ -2095,7 +2096,10 @@ class AccountMove(models.Model):
                 raise UserError(_('You cannot edit the journal of an account move if it already has a sequence number assigned.'))
 
             # You can't change the date of a move being inside a locked period.
-            if 'date' in vals and move.date != vals['date']:
+            if move.state == "posted" and (
+                    ('name' in vals and move.name != vals['name'])
+                    or ('date' in vals and move.date != vals['date'])
+            ):
                 move._check_fiscalyear_lock_date()
                 move.line_ids._check_tax_lock_date()
 

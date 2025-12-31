@@ -46,7 +46,6 @@ class ir_cron(models.Model):
     _name = "ir.cron"
     _order = 'cron_name'
     _description = 'Scheduled Actions'
-    _allow_sudo_commands = False
 
     ir_actions_server_id = fields.Many2one(
         'ir.actions.server', 'Server action',
@@ -118,6 +117,25 @@ class ir_cron(models.Model):
             _logger.exception("Call from cron %s for server action #%s failed in Job #%s",
                               cron_name, server_action_id, job_id)
             self._handle_callback_exception(cron_name, server_action_id, job_id, e)
+    
+    @classmethod
+    def _build_get_jobs_where_clauses(cls):
+        return [
+            'numbercall != 0',
+            'active',
+            "nextcall <= (now() at time zone 'UTC')",
+        ]
+
+    @classmethod
+    def _build_get_jobs_query(cls):
+        where_clauses = cls._build_get_jobs_where_clauses()
+        where_clauses = ' AND '.join(where_clauses)
+        sql = """
+        SELECT * FROM ir_cron
+        WHERE {}
+        ORDER BY priority
+        """.format(where_clauses)
+        return sql
 
     @classmethod
     def _process_job(cls, job_cr, job, cron_cr):
@@ -193,10 +211,9 @@ class ir_cron(models.Model):
                 elif version != BASE_VERSION:
                     raise BadVersion()
                 # Careful to compare timestamps with 'UTC' - everything is UTC as of v6.1.
-                cr.execute("""SELECT * FROM ir_cron
-                              WHERE numbercall != 0
-                                  AND active AND nextcall <= (now() at time zone 'UTC')
-                              ORDER BY priority""")
+                registry = odoo.registry(db_name)
+                sql = registry[cls._name]._build_get_jobs_query()
+                cr.execute(sql)
                 jobs = cr.dictfetchall()
 
             if changes:

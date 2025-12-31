@@ -212,7 +212,7 @@ var FieldHtml = basic_fields.DebouncedField.extend(TranslatableFieldMixin, {
                 if (para && para[1] && para[1].indexOf('checklist') === -1) {
                     para[1].splice(2, 0, 'checklist');
                 }
-                if (config.isDebug()) {
+                if (true || config.isDebug()) {
                     options.codeview = true;
                     var view = _.find(toolbar, function (item) {
                         return item[0] === 'view';

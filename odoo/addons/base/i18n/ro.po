@@ -8,8 +8,8 @@
 # Foldi Robert <foldirobert@nexterp.ro>, 2021
 # Fekete Mihai <mihai.fekete@forestandbiomass.ro>, 2021
 # Cozmin Candea <office@terrabit.ro>, 2023
+# Dorin Hongu <dhongu@gmail.com>, 2023
 # Martin Trigaux, 2023
-# Dorin Hongu <dhongu@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Dorin Hongu <dhongu@gmail.com>, 2024\n"
+"Last-Translator: Martin Trigaux, 2023\n"
 "Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1025,8 +1025,6 @@ msgid ""
 "        This bridge module allows to manage subcontracting with valuation.\n"
 "    "
 msgstr ""
-"\n"
-"Acest modul de punte permite gestionarea subcontractării cu evaluare."
 
 #. module: base
 #: model:ir.module.module,description:base.module_stock_barcode_mrp_subcontracting
@@ -1035,8 +1033,6 @@ msgid ""
 "        This bridge module is auto-installed when the modules stock_barcode and mrp_subcontracting are installed.\n"
 "    "
 msgstr ""
-"\n"
-"Acest modul de punte este instalat automat atunci când modulele stock_barcode și mrp_subcontracting sunt instalate."
 
 #. module: base
 #: model:ir.module.module,description:base.module_stock_barcode_quality_control
@@ -1045,8 +1041,6 @@ msgid ""
 "        This bridge module is auto-installed when the modules stock_barcode and quality_control are installed.\n"
 "    "
 msgstr ""
-"\n"
-"Acest modul de punte este instalat automat atunci când modulele stock_barcode și quality_control sunt instalate."
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_qr_code_sepa
@@ -1392,12 +1386,6 @@ msgid ""
 "    * Any new All Users Lock Date must be posterior (or equal) to the previous one.\n"
 "    "
 msgstr ""
-"\n"
-"Faceți ca data de blocare să fie ireversibilă:\n"
-"\n"
-"* Nu puteți impune restricții mai stricte pentru consilieri decât pentru utilizatori. Prin urmare, Data de blocare a tuturor utilizatorilor trebuie să fie anterioară (sau egală) cu Data de blocare a Facturii/Facturilor.\n"
-"* Nu puteți bloca o perioadă care nu s-a încheiat încă. Prin urmare, Data de blocare a tuturor utilizatorilor trebuie să fie anterioară (sau egală) cu ultima zi a lunii anterioare.\n"
-"* Orice nouă Data de blocare a tuturor utilizatorilor trebuie să fie ulterioară (sau egală) celei anterioare."
 
 #. module: base
 #: model:ir.module.module,description:base.module_sale_coupon_taxcloud
@@ -1929,9 +1917,6 @@ msgid ""
 "Configure your own methods with a pricing grid or integrate with carriers for a fully automated shipping process.\n"
 "    "
 msgstr ""
-"\n"
-"Adăugați o selecție de metode de livrare la magazinul dvs. de comerț electronic.\n"
-"Configurați propriile metode cu o grilă de prețuri sau integrați-vă cu transportatorii pentru un proces de expediere complet automatizat."
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_contract
@@ -2154,8 +2139,6 @@ msgid ""
 "by external providers and will automatically generate purchase orders directed to the service seller.\n"
 "    "
 msgstr ""
-"\n"
-"Permite externalizarea serviciilor. Acest modul permite vânzarea serviciilor furnizate de către furnizorii externi și va genera automat comenzi de achiziție direcționate către vânzătorul de servicii."
 
 #. module: base
 #: model:ir.module.module,description:base.module_sale_timesheet_purchase
@@ -2934,13 +2917,6 @@ msgid ""
 "when you confirm your sales order it will automatically create a registration for\n"
 "this event.\n"
 msgstr ""
-"\n"
-"Crearea înregistrării cu comenzile de vânzare.\n"
-"========================================\n"
-"\n"
-"Acest modul vă permite să automatizați și să conectați crearea înregistrării dvs. cu fluxul principal de vânzări și, prin urmare, să activați funcția de facturare a înregistrărilor.\n"
-"\n"
-"Acesta definește un nou tip de produse de serviciu care vă oferă posibilitatea de a alege o categorie de eveniment asociată cu acesta. Atunci când codificați o comandă de vânzare pentru acel produs, veți putea alege un eveniment existent din acea categorie și când confirmați comanda de vânzare, va crea automat o înregistrare pentru acest eveniment.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_hr
@@ -13528,15 +13504,6 @@ msgid "Error message returned when the constraint is violated."
 msgstr "Mesaj de eroare returnat atunci când constrângerea este încălcată."
 
 #. module: base
-#: code:addons/translate.py:0
-#, python-format
-msgid ""
-"Error while parsing view:\n"
-"\n"
-"%s"
-msgstr ""
-
-#. module: base
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid ""
@@ -16483,12 +16450,6 @@ msgstr ""
 #, python-format
 msgid "Invalid 'group by' parameter"
 msgstr "Parametrul  'group by' e invalid"
-
-#. module: base
-#: code:addons/template_inheritance.py:0
-#, python-format
-msgid "Invalid Expression while parsing xpath %r"
-msgstr ""
 
 #. module: base
 #: code:addons/base/models/ir_default.py:0
@@ -23692,14 +23653,6 @@ msgstr "Trimiteți expedierile prin Fedex și urmăriți-le online"
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_ups
-msgid ""
-"This is the legacy integration with UPS that is no longer supported. Please "
-"install the new \"UPS Shipping\" module and uninstall this one as soon as "
-"possible. This integration will stop working in 2024."
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,summary:base.module_delivery_ups_rest
 msgid "Send your shippings through UPS and track them online"
 msgstr "Trimiteți expedierile prin UPS și urmăriți-le online"
 
@@ -26419,11 +26372,6 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
-msgid "UPS Shipping (Legacy)"
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,shortdesc:base.module_delivery_ups_rest
 msgid "UPS Shipping"
 msgstr ""
 
@@ -27986,12 +27934,6 @@ msgid "You cannot deactivate the user you're currently logged in as."
 msgstr "Nu poți dezactiva utilizatorii care sunt acum conectați în sistem"
 
 #. module: base
-#: code:addons/base/models/ir_config_parameter.py:0
-#, python-format
-msgid "You cannot delete the %s record."
-msgstr ""
-
-#. module: base
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid ""
@@ -28010,12 +27952,6 @@ msgstr "Nu puteți șterge limba care este limba preferată de utilizator."
 #, python-format
 msgid "You cannot merge a contact with one of his parent."
 msgstr "Nu puteți îmbina un contact cu unul dintre părinții săi."
-
-#. module: base
-#: code:addons/base/models/ir_config_parameter.py:0
-#, python-format
-msgid "You cannot rename config parameters with keys %s"
-msgstr ""
 
 #. module: base
 #: code:addons/models.py:0

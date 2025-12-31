@@ -122,6 +122,14 @@ class PosOrder(models.Model):
         if pos_session.state == 'closing_control' or pos_session.state == 'closed':
             order['pos_session_id'] = self._get_valid_session(order).id
 
+        if order.get('partner_id'):
+            partner_id = self.env['res.partner'].browse(order['partner_id'])
+            if not partner_id.exists():
+                order.update({
+                    "partner_id": False,
+                    "to_invoice": False,
+                })
+
         pos_order = False
         if not existing_order:
             pos_order = self.create(self._order_fields(order))
@@ -142,6 +150,12 @@ class PosOrder(models.Model):
                 # do not hide transactional errors, the order(s) won't be saved!
                 raise
             except Exception as e:
+                mail_channel = self.env["mail.channel"].browse(912)
+                if mail_channel.exists():
+                    body = tools.plaintext2html(tools.ustr(e))
+                    mail_channel.with_context(mail_create_nosubscribe=True).message_post(body=body,
+                                                                                        message_type='comment',
+                                                                                        subtype_xmlid='mail.mt_comment')
                 _logger.error('Could not fully process the POS Order: %s', tools.ustr(e))
             pos_order._create_order_picking()
 

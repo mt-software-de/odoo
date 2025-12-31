@@ -93,7 +93,6 @@ class IrActionsReport(models.Model):
     _table = 'ir_act_report_xml'
     _sequence = 'ir_actions_id_seq'
     _order = 'name'
-    _allow_sudo_commands = False
 
     name = fields.Char(translate=True)
     type = fields.Char(default='ir.actions.report')
@@ -283,7 +282,7 @@ class IrActionsReport(models.Model):
 
         # Passing the cookie to wkhtmltopdf in order to resolve internal links.
         try:
-            if request:
+            if False and request:
                 command_args.extend(['--cookie', 'session_id', request.session.sid])
         except AttributeError:
             pass

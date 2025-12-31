@@ -198,6 +198,7 @@ ActionManager.include({
                         widget.destroy();
                     } else {
                         controller.widget = widget;
+			controller.view = view;
                         resolve(controller);
                     }
                 }).guardedCatch(reject);

@@ -48,12 +48,6 @@ msgstr "\" teavita"
 #. module: website
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
-msgid "\"URL from\" can not be empty."
-msgstr "\"URL aadressist\" ei saa olla tühi"
-
-#. module: website
-#: code:addons/website/models/website_rewrite.py:0
-#, python-format
 msgid "\"URL to\" can not be empty."
 msgstr "\"sihtkoha URL\" ei saa olla tühi."
 
@@ -7501,16 +7495,6 @@ msgstr ""
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/editor/snippets.options.js:0
-#, python-format
-msgid ""
-"This font already exists, you can only add it as a local font to replace the"
-" server version."
-msgstr ""
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/editor/snippets.options.js:0
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "This font is hosted and served to your visitors by Google servers"
@@ -7792,7 +7776,7 @@ msgstr "Tõlgi atribuut"
 #: code:addons/website/static/src/js/editor/wysiwyg_multizone_translate.js:0
 #, python-format
 msgid "Translate Selection Option"
-msgstr "Tõlgi valikuvariandid"
+msgstr ""
 
 #. module: website
 #. openerp-web

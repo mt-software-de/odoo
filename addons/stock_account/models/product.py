@@ -105,10 +105,7 @@ class ProductProduct(models.Model):
             self.filtered(lambda p: p.cost_method != 'fifo')._change_standard_price(vals['standard_price'])
         return super(ProductProduct, self).write(vals)
 
-    @api.depends('stock_valuation_layer_ids')
-    @api.depends_context('to_date', 'company')
-    def _compute_value_svl(self):
-        """Compute `value_svl` and `quantity_svl`."""
+    def _get_valuation_layer_group_domain(self):
         company_id = self.env.company.id
         domain = [
             ('product_id', 'in', self.ids),
@@ -117,12 +114,31 @@ class ProductProduct(models.Model):
         if self.env.context.get('to_date'):
             to_date = fields.Datetime.to_datetime(self.env.context['to_date'])
             domain.append(('create_date', '<=', to_date))
-        groups = self.env['stock.valuation.layer'].read_group(domain, ['value:sum', 'quantity:sum'], ['product_id'])
+        return domain
+
+    def _get_valuation_layer_group_fields(self):
+        return ['value:sum', 'quantity:sum']
+
+    def _get_valuation_layer_groups(self):
+        domain = self._get_valuation_layer_group_domain()
+        group_fields = self._get_valuation_layer_group_fields()
+        return self.env['stock.valuation.layer'].read_group(domain, group_fields, ['product_id'])
+
+    def _prepare_valuation_layer_field_values(self, group):
+        return {
+            "value_svl": self.env.company.currency_id.round(group['value']),
+            "quantity_svl": group['quantity'],
+        }
+
+    @api.depends('stock_valuation_layer_ids')
+    @api.depends_context('to_date', 'company')
+    def _compute_value_svl(self):
+        """Compute `value_svl` and `quantity_svl`."""
+        groups = self._get_valuation_layer_groups()
         products = self.browse()
         for group in groups:
             product = self.browse(group['product_id'][0])
-            product.value_svl = self.env.company.currency_id.round(group['value'])
-            product.quantity_svl = group['quantity']
+            product.update(product._prepare_valuation_layer_field_values(group))
             products |= product
         remaining = (self - products)
         remaining.value_svl = 0
@@ -369,11 +385,32 @@ class ProductProduct(models.Model):
             }
         return vals
 
+    def _prepare_fifo_vacuum_valuation_values(self, svl_to_vacuum, corrected_value):
+        move = svl_to_vacuum.stock_move_id
+        return {
+            'product_id': self.id,
+            'value': corrected_value,
+            'unit_cost': 0,
+            'quantity': 0,
+            'remaining_qty': 0,
+            'stock_move_id': move.id,
+            'company_id': move.company_id.id,
+            'description': 'Revaluation of %s (negative inventory)' % (move.picking_id.name or move.name),
+            'stock_valuation_layer_id': svl_to_vacuum.id,
+        }
+
+    def _prepare_fifo_vacuum_values(self):
+        return {'standard_price': self.value_svl / self.quantity_svl}
+
+    def _update_fifo_vacuum_values(self):
+        for product in self:
+            product_values = product._prepare_fifo_vacuum_values()
+            product.sudo().with_context(disable_auto_svl=True).write(product_values)
+
     def _run_fifo_vacuum(self, company=None):
         """Compensate layer valued at an estimated price with the price of future receipts
         if any. If the estimated price is equals to the real price, no layer is created but
         the original layer is marked as compensated.
-
         :param company: recordset of `res.company` to limit the execution of the vacuum
         """
         self.ensure_one()
@@ -381,17 +418,19 @@ class ProductProduct(models.Model):
             company = self.env.company
         svls_to_vacuum = self.env['stock.valuation.layer'].sudo().search([
             ('product_id', '=', self.id),
-            ('remaining_qty', '<', 0),
+            ('remaining_qty', '<', 0), 
             ('stock_move_id', '!=', False),
             ('company_id', '=', company.id),
         ], order='create_date, id')
         if not svls_to_vacuum:
             return
 
-        domain = [
+        as_svls = []
+
+        domain = [ 
             ('company_id', '=', company.id),
             ('product_id', '=', self.id),
-            ('remaining_qty', '>', 0),
+            ('remaining_qty', '>', 0), 
             ('create_date', '>=', svls_to_vacuum[0].create_date),
         ]
         all_candidates = self.env['stock.valuation.layer'].sudo().search(domain)
@@ -406,8 +445,8 @@ class ProductProduct(models.Model):
             if not candidates:
                 break
             qty_to_take_on_candidates = abs(svl_to_vacuum.remaining_qty)
-            qty_taken_on_candidates = 0
-            tmp_value = 0
+            qty_taken_on_candidates = 0 
+            tmp_value = 0 
             for candidate in candidates:
                 qty_taken_on_candidate = min(candidate.remaining_qty, qty_to_take_on_candidates)
                 qty_taken_on_candidates += qty_taken_on_candidate
@@ -417,12 +456,12 @@ class ProductProduct(models.Model):
                 value_taken_on_candidate = candidate.currency_id.round(value_taken_on_candidate)
                 new_remaining_value = candidate.remaining_value - value_taken_on_candidate
 
-                candidate_vals = {
+                candidate_vals = { 
                     'remaining_qty': candidate.remaining_qty - qty_taken_on_candidate,
                     'remaining_value': new_remaining_value
                 }
                 candidate.write(candidate_vals)
-                if not (candidate.remaining_qty > 0):
+                if not (candidate.remaining_qty > 0): 
                     all_candidates -= candidate
 
                 qty_to_take_on_candidates -= qty_taken_on_candidate
@@ -443,34 +482,22 @@ class ProductProduct(models.Model):
                 continue
 
             corrected_value = svl_to_vacuum.currency_id.round(corrected_value)
-            move = svl_to_vacuum.stock_move_id
-            vals = {
-                'product_id': self.id,
-                'value': corrected_value,
-                'unit_cost': 0,
-                'quantity': 0,
-                'remaining_qty': 0,
-                'stock_move_id': move.id,
-                'company_id': move.company_id.id,
-                'description': 'Revaluation of %s (negative inventory)' % (move.picking_id.name or move.name),
-                'stock_valuation_layer_id': svl_to_vacuum.id,
-            }
+            vals = self._prepare_fifo_vacuum_valuation_values(svl_to_vacuum, corrected_value)
             vacuum_svl = self.env['stock.valuation.layer'].sudo().create(vals)
 
-            # Create the account move.
             if self.valuation != 'real_time':
                 continue
-            vacuum_svl.stock_move_id._account_entry_move(
-                vacuum_svl.quantity, vacuum_svl.description, vacuum_svl.id, vacuum_svl.value
-            )
-            # Create the related expense entry
-            self._create_fifo_vacuum_anglo_saxon_expense_entry(vacuum_svl, svl_to_vacuum)
+            as_svls.append((vacuum_svl, svl_to_vacuum))
 
         # If some negative stock were fixed, we need to recompute the standard price.
         product = self.with_company(company.id)
-        if product.cost_method == 'average' and not float_is_zero(product.quantity_svl, precision_rounding=self.uom_id.rounding):
-            product.sudo().with_context(disable_auto_svl=True).write({'standard_price': product.value_svl / product.quantity_svl})
+        if product.product_tmpl_id.cost_method == 'average' and not float_is_zero(product.quantity_svl, precision_rounding=self.uom_id.rounding):
+            product._update_fifo_vacuum_values()
 
+        self.env['stock.valuation.layer'].browse(x[0].id for x in as_svls)._validate_accounting_entries()
+
+        for vacuum_svl, svl_to_vacuum in as_svls:
+            self._create_fifo_vacuum_anglo_saxon_expense_entry(vacuum_svl, svl_to_vacuum)
 
     def _create_fifo_vacuum_anglo_saxon_expense_entry(self, vacuum_svl, svl_to_vacuum):
         """ When product is delivered and invoiced while you don't have units in stock anymore, there are chances of that
@@ -627,6 +654,11 @@ class ProductProduct(models.Model):
             debit_account_id = product_accounts[product.id]['stock_valuation'].id
             credit_account_id = product_accounts[product.id]['stock_input'].id
             value = out_stock_valuation_layer.value
+            if out_stock_valuation_layer.currency_id.compare_amounts(value, 0) < 0:
+                # Swap accounts makes a negative value in accounting
+                debit_account_id = product_accounts[product.id]['stock_output'].id
+                credit_account_id = product_accounts[product.id]['stock_valuation'].id
+
             move_vals = {
                 'journal_id': product_accounts[product.id]['stock_journal'].id,
                 'company_id': self.env.company.id,

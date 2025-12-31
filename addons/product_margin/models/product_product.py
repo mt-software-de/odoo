@@ -113,12 +113,16 @@ class ProductProduct(models.Model):
                 SELECT
                     l.product_id as product_id,
                     SUM(
-                        l.price_unit / (CASE COALESCE(cr.rate, 0) WHEN 0 THEN 1.0 ELSE cr.rate END) *
-                        l.quantity * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE -1 END) * ((100 - l.discount) * 0.01)
-                    ) / NULLIF(SUM(l.quantity * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE -1 END)), 0) AS avg_unit_price,
+                        l.price_subtotal / (CASE COALESCE(cr.rate, 0) WHEN 0 THEN 1.0 ELSE cr.rate END) *
+                        (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE 0 END)
+                    ) / NULLIF(SUM(l.quantity * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE 0 END)), 0) AS avg_unit_price,
                     SUM(l.quantity * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE -1 END)) AS num_qty,
                     SUM(ABS(l.balance) * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE -1 END)) AS total,
-                    SUM(l.quantity * pt.list_price * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE -1 END)) AS sale_expected
+                    SUM(l.quantity * pt.list_price * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 1 ELSE -1 END)) AS sale_expected,
+                    SUM(
+                        l.price_subtotal / (CASE COALESCE(cr.rate, 0) WHEN 0 THEN 1.0 ELSE cr.rate END) *
+                        (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 0 ELSE 1 END)
+                    ) / NULLIF(SUM(l.quantity * (CASE WHEN i.move_type IN ('out_invoice', 'in_invoice') THEN 0 ELSE 1 END)), 0) AS avg_unit_price_refund
                 FROM account_move_line l
                 LEFT JOIN account_move i ON (l.move_id = i.id)
                 LEFT JOIN product_product product ON (product.id=l.product_id)
@@ -140,8 +144,10 @@ class ProductProduct(models.Model):
                 """.format(self.env['res.currency']._select_companies_rates())
         invoice_types = ('out_invoice', 'out_refund')
         self.env.cr.execute(sqlstr, (tuple(self.ids), states, payment_states, invoice_types, date_from, date_to, company_id))
-        for product_id, avg, qty, total, sale in self.env.cr.fetchall():
-            res[product_id]['sale_avg_price'] = avg and avg or 0.0
+        for product_id, avg, qty, total, sale, avg_refund in self.env.cr.fetchall():
+            avg = avg or 0
+            avg_refund = avg_refund or 0
+            res[product_id]['sale_avg_price'] = avg - avg_refund
             res[product_id]['sale_num_invoiced'] = qty and qty or 0.0
             res[product_id]['turnover'] = total and total or 0.0
             res[product_id]['sale_expected'] = sale and sale or 0.0
@@ -155,8 +161,10 @@ class ProductProduct(models.Model):
         ctx['force_company'] = company_id
         invoice_types = ('in_invoice', 'in_refund')
         self.env.cr.execute(sqlstr, (tuple(self.ids), states, payment_states, invoice_types, date_from, date_to, company_id))
-        for product_id, avg, qty, total, dummy in self.env.cr.fetchall():
-            res[product_id]['purchase_avg_price'] = avg and avg or 0.0
+        for product_id, avg, qty, total, dummy, avg_refund in self.env.cr.fetchall():
+            avg = avg or 0
+            avg_refund = avg_refund or 0
+            res[product_id]['purchase_avg_price'] = avg - avg_refund
             res[product_id]['purchase_num_invoiced'] = qty and qty or 0.0
             res[product_id]['total_cost'] = total and total or 0.0
             res[product_id]['total_margin'] = res[product_id].get('turnover', 0.0) - res[product_id]['total_cost']
@@ -166,5 +174,5 @@ class ProductProduct(models.Model):
             res[product.id]['purchase_gap'] = res[product.id]['normal_cost'] - res[product.id]['total_cost']
             res[product.id]['expected_margin'] = res[product.id].get('sale_expected', 0.0) - res[product.id]['normal_cost']
             res[product.id]['expected_margin_rate'] = res[product.id].get('sale_expected', 0.0) and res[product.id]['expected_margin'] * 100 / res[product.id].get('sale_expected', 0.0) or 0.0
-            product.write(res[product.id])
+            product.update(res[product.id])
         return res

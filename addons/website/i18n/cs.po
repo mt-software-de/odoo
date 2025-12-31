@@ -12,8 +12,8 @@
 # Martin Trigaux, 2021
 # Rastislav Brencic <rastislav.brencic@azet.sk>, 2021
 # Jiří Podhorecký, 2023
-# Jakub Smolka, 2023
 # Aleš Fiala <f.ales1@seznam.cz>, 2023
+# Jakub Smolka, 2023
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 14:40+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Aleš Fiala <f.ales1@seznam.cz>, 2023\n"
+"Last-Translator: Jakub Smolka, 2023\n"
 "Language-Team: Czech (https://app.transifex.com/odoo/teams/41243/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,19 +58,19 @@ msgstr "„URL to“ nemůže být prázdné."
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
 msgid "\"URL to\" cannot contain parameter %s which is not used in \"URL from\"."
-msgstr "\"URL do\" nesmí obsahovat parametr %s, který není použit v \"URL z\""
+msgstr ""
 
 #. module: website
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
 msgid "\"URL to\" is invalid: %s"
-msgstr "\"URL do\" je neplatná: %s"
+msgstr ""
 
 #. module: website
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
 msgid "\"URL to\" must contain parameter %s used in \"URL from\"."
-msgstr "\"URL do\" musí obsahovat parametr %s, který je použit v \"URL z\""
+msgstr ""
 
 #. module: website
 #: code:addons/website/models/website_rewrite.py:0
@@ -178,7 +178,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website.template_header_sidebar_oe_structure_header_sidebar_1
 #: model_terms:ir.ui.view,arch_db:website.template_header_vertical_oe_structure_header_vertical_2
 msgid "+1 (650) 555-0111"
-msgstr "+420 601 111 222"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
@@ -484,14 +484,14 @@ msgstr "<b>Select</b> paletu barev."
 #: code:addons/website/static/src/js/tours/tour_utils.js:0
 #, python-format
 msgid "<b>Slide</b> this button to change the %s padding"
-msgstr "<b>Posunutím</b> tohoto tlačítka změníte odsazení %s"
+msgstr ""
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/tours/tour_utils.js:0
 #, python-format
 msgid "<b>Slide</b> this button to change the column size."
-msgstr "<b>Posunutím</b> tohoto tlačítka změníte velikost sloupce."
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.view_edit_robots
@@ -1041,8 +1041,6 @@ msgid ""
 "A Google Map error occurred. Make sure to read the key configuration popup "
 "carefully."
 msgstr ""
-"Došlo k chybě mapy Google. Pečlivě si přečtěte vyskakovací okno nastavení "
-"klíče."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_text_image
@@ -1994,7 +1992,7 @@ msgstr "Zkontrolujte svoji konfiguraci."
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Check your connection and try again"
-msgstr "Zkontrolujte připojení a zkuste to znovu"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_product_catalog
@@ -2979,7 +2977,7 @@ msgstr "Zobrazit tuto webovou stránku, když uživatelé navštíví tuto domé
 #: code:addons/website/static/src/js/backend/res_config_settings.js:0
 #, python-format
 msgid "Do not activate"
-msgstr "Neaktivovat"
+msgstr ""
 
 #. module: website
 #. openerp-web
@@ -3051,7 +3049,6 @@ msgstr "Kobliha"
 msgid ""
 "Drag the <b>%s</b> building block and drop it at the bottom of the page."
 msgstr ""
-"Přetáhněte stavební blok <b>%s</b> a umístěte jej do dolní části stránky."
 
 #. module: website
 #. openerp-web
@@ -3247,14 +3244,14 @@ msgstr "Aktivujte ve svém projektu Google fakturaci"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Enable the right google map APIs in your google account"
-msgstr "Povolte správná rozhraní API pro mapy Google ve svém účtu Google"
+msgstr ""
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Enter an API Key"
-msgstr "Zadejte klíč API"
+msgstr ""
 
 #. module: website
 #. openerp-web
@@ -3852,11 +3849,6 @@ msgid ""
 "will be possible only up to mid 2023. After that, those services won't work "
 "anymore, at all."
 msgstr ""
-"Společnost Google ukončila podporu rozhraní API „Universal Analytics“ a "
-"„Google Sign-In“. To znamená, že pouze účty a klíče vytvořené před rokem "
-"2020 budou moci integrovat svůj panel Analytics do Odoo (nebo jakéhokoli "
-"jiného webu). To bude možné pouze do poloviny roku 2023. Poté již tyto "
-"služby nebudou fungovat vůbec."
 
 #. module: website
 #: model:ir.model.fields,help:website.field_res_config_settings__google_search_console
@@ -4509,7 +4501,7 @@ msgstr "Intuitivní systém"
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Invalid API Key. The following error was returned by Google:"
-msgstr "Neplatný klíč API. Google vrátil následující chybu:"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_company_team
@@ -5065,7 +5057,7 @@ msgstr "Hlavní akce"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Make sure billing is enabled"
-msgstr "Ujistěte se, že je povolena fakturace"
+msgstr ""
 
 #. module: website
 #. openerp-web
@@ -5075,15 +5067,13 @@ msgid ""
 "Make sure to wait if errors keep being shown: sometimes enabling an API "
 "allows to use it immediately but Google keeps triggering errors for a while"
 msgstr ""
-"Určitě počkejte, pokud se chyby budou nadále zobrazovat: někdy povolení "
-"rozhraní API umožňuje jeho okamžité použití, ale Google stále spouští chyby"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Make sure your settings are properly configured:"
-msgstr "Ujistěte se, že jsou vaše nastavení správně nakonfigurována:"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.user_navbar
@@ -5110,14 +5100,14 @@ msgstr "Správa této stránky"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Maps JavaScript API"
-msgstr "Mapy JavaScript API"
+msgstr ""
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Maps Static API"
-msgstr "Statické mapy API"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_google_map_options
@@ -5233,7 +5223,7 @@ msgstr "Střední"
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Min-Height"
-msgstr "Minimální výška"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_blockquote_options
@@ -5439,8 +5429,6 @@ msgid ""
 "New Google Analytics accounts and keys are now using Google Analytics 4 "
 "which, for now, can't be integrated/embed in external websites."
 msgstr ""
-"Nové účty a klíče Google Analytics nyní využívají službu Google Analytics 4,"
-" kterou zatím nelze integrovat/vkládat na externí weby."
 
 #. module: website
 #. openerp-web
@@ -5978,7 +5966,7 @@ msgstr "Pilulky"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Places API"
-msgstr "Místa API"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -6715,7 +6703,7 @@ msgstr "Číselná řada"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Serve font from Google servers"
-msgstr "Poskytovat fonty ze serverů Google"
+msgstr ""
 
 #. module: website
 #: model:ir.model,name:website.model_ir_actions_server
@@ -7526,7 +7514,7 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "This font is hosted and served to your visitors by Google servers"
-msgstr "Tento font je hostován a poskytován návštěvníkům na serverech Google."
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -7553,7 +7541,7 @@ msgstr "Tato stránka"
 #: code:addons/website/models/website_visitor.py:0
 #, python-format
 msgid "This operator is not supported"
-msgstr "Tento operátor není podporován"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.page_404
@@ -7594,8 +7582,6 @@ msgid ""
 "Those accounts should now check their Analytics dashboard in the Google "
 "platform directly."
 msgstr ""
-"Tyto účty by si měly přímo nyní zkontrolovat dashboard Analytics na "
-"platformě Google."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_image_gallery_options
@@ -9201,7 +9187,7 @@ msgstr "https://fonts.google.com/specimen/Roboto"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
 msgid "https://www.odoo.com"
-msgstr "https://www.odoo.com"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -9391,7 +9377,7 @@ msgstr "tato strana"
 #: code:addons/website/static/src/xml/theme_preview.xml:0
 #, python-format
 msgid "to build the perfect page in 5 steps."
-msgstr "sestavit dokonalou stránku v 5 krocích."
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -9550,4 +9536,4 @@ msgstr "⌙ Šířka"
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "└ Height"
-msgstr "└ Výška"
+msgstr ""

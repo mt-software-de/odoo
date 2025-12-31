@@ -17,7 +17,6 @@
 # Irina Fedulova <istartlin@gmail.com>, 2020
 # Сергей Шебанин <sergey@shebanin.ru>, 2022
 # alenafairy, 2023
-# Wil Odoo, 2024
 # 
 msgid ""
 msgstr ""
@@ -25,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 14:13+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Wil Odoo, 2024\n"
+"Last-Translator: alenafairy, 2023\n"
 "Language-Team: Russian (https://app.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +51,7 @@ msgstr "%dpx (Рекомендуемая)"
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "%spx"
-msgstr "%spx"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -104,7 +103,7 @@ msgstr "(YouTube, Vimeo, Vine, Instagram, DailyMotion или Youku)"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "1977"
-msgstr "1977"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -192,12 +191,12 @@ msgstr ""
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Aden"
-msgstr "Аден"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Airy & Zigs"
-msgstr "Эйри и Зигс"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -232,14 +231,14 @@ msgstr "Все"
 #: code:addons/web_editor/static/src/xml/ace.xml:0
 #, python-format
 msgid "All SCSS Files"
-msgstr "Все файлы SCSS"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "All images have been loaded"
-msgstr "Все изображения загружены"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -274,7 +273,7 @@ msgstr "соотношение сторон"
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_web_editor_assets
 msgid "Assets Utils"
-msgstr "Активы"
+msgstr ""
 
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_attachment
@@ -320,7 +319,7 @@ msgstr "Расположение фона"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Blobs"
-msgstr "Blobs"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -332,12 +331,12 @@ msgstr "Блокировка"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Blocks & Rainy"
-msgstr "Блоки и дождь"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Blur"
-msgstr "Размытие"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -350,12 +349,12 @@ msgstr "Жирный"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Brannan"
-msgstr "Браннан"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Brightness"
-msgstr "Яркость"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -454,7 +453,7 @@ msgstr "Колонка"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "Combinations"
-msgstr "Комбинации"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -473,7 +472,7 @@ msgstr "Подтверждение"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Contrast"
-msgstr "Контраст"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -525,7 +524,7 @@ msgstr "Пользовательский"
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Custom %s"
-msgstr "Пользовательский %s"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -561,7 +560,7 @@ msgstr "По умолчанию + Округлый"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Delete %s"
-msgstr "Удалить %s"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -661,12 +660,12 @@ msgstr "Изменяемый цвет"
 #: code:addons/web_editor/controllers/main.py:0
 #, python-format
 msgid "ERROR: couldn't get download urls from media library."
-msgstr "ERROR: не удалось получить урлы загрузки из медиатеки."
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "EarlyBird"
-msgstr "EarlyBird"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -679,7 +678,7 @@ msgstr "Редактировать"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Edit image"
-msgstr "Изменить изображение"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -689,8 +688,6 @@ msgid ""
 "Editing a built-in file through this editor is not advised, as it will "
 "prevent it from being updated during future App upgrades."
 msgstr ""
-"Редактирование встроенного файла через этот редактор не рекомендуется, так "
-"как это не позволит обновить его при последующих обновлениях приложения."
 
 #. module: web_editor
 #. openerp-web
@@ -733,7 +730,7 @@ msgstr "Фильтр"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippets
 msgid "First Panel"
-msgstr "Первая панель"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -803,7 +800,7 @@ msgstr "Размер шрифта"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "For technical reasons, this block cannot be dropped here"
-msgstr "По техническим причинам этот блок не может быть сброшен сюда"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1059,7 +1056,7 @@ msgstr "Отступ"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Inkwell"
-msgstr "Чернильница"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1100,7 +1097,7 @@ msgstr "Установить"
 #: code:addons/web_editor/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid field value for %s: %s"
-msgstr "Недопустимое значение поля для %s: %s"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1142,7 +1139,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/js/common/ace.js:0
 #, python-format
 msgid "JS file: %s"
-msgstr "Файл JS: %s"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1248,7 +1245,7 @@ msgstr "цикл"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Maven"
-msgstr "Мавен"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1268,7 +1265,7 @@ msgstr "Отображение на мобильном"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "More info about this app."
-msgstr "Дополнительная информация об этом приложении."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1305,7 +1302,7 @@ msgstr "Нет"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "No documents found."
-msgstr "Документы не найдены."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1319,7 +1316,7 @@ msgstr "Не найдено изображений."
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "No location to drop in"
-msgstr "Нет места, куда можно было бы заглянуть"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1344,14 +1341,14 @@ msgstr "Нормальный"
 #: code:addons/web_editor/static/src/xml/ace.xml:0
 #, python-format
 msgid "Only Custom SCSS Files"
-msgstr "Только пользовательские файлы SCSS"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/ace.xml:0
 #, python-format
 msgid "Only Page SCSS Files"
-msgstr "Только SCSS-файлы страницы"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1366,7 +1363,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/ace.xml:0
 #, python-format
 msgid "Only Views"
-msgstr "Только виды"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1388,7 +1385,7 @@ msgstr "оптимизировать"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "Optimized"
-msgstr "Оптимизированный"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1412,7 +1409,7 @@ msgstr "Оригинальное ( неотредактированное, не 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Origins"
-msgstr "Истоки"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1484,17 +1481,17 @@ msgstr "Основной"
 #. module: web_editor
 #: model:ir.model.fields.selection,name:web_editor.selection__web_editor_converter_test__selection_str__c
 msgid "Qu'est-ce qu'il fout ce maudit pancake, tabernacle ?"
-msgstr "Что это за блин, который он подает на стол?"
+msgstr ""
 
 #. module: web_editor
 #: model:ir.model.fields.selection,name:web_editor.selection__web_editor_converter_test__selection_str__a
 msgid "Qu'il n'est pas arrivé à Toronto"
-msgstr "Qu'il n'est pas arrivé à Toronto"
+msgstr ""
 
 #. module: web_editor
 #: model:ir.model.fields.selection,name:web_editor.selection__web_editor_converter_test__selection_str__b
 msgid "Qu'il était supposé arriver à Toronto"
-msgstr "Предполагается, что он прибудет в Торонто"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1587,7 +1584,7 @@ msgstr "Поле Qweb Many to One"
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_qweb_field_monetary
 msgid "Qweb Field Monetary"
-msgstr "Денежное поле Qweb"
+msgstr ""
 
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_qweb_field_relative
@@ -1669,7 +1666,7 @@ msgstr "Удалить изображение"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Repeat pattern"
-msgstr "Повторяйте узор"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1760,7 +1757,7 @@ msgstr "Файл SCSS:%s "
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Saturation"
-msgstr "Насыщенность"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1784,14 +1781,14 @@ msgstr ""
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Save and Install"
-msgstr "Сохранить и установить"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Save and Reload"
-msgstr "Сохранить и перезагрузить"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1860,7 +1857,7 @@ msgstr "Выбрать файл"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Sepia"
-msgstr "Сепия"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -1998,14 +1995,14 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "The URL does not seem to work."
-msgstr "URL-адрес, похоже, не работает."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "The URL seems valid."
-msgstr "URL-адрес кажется действительным."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2067,14 +2064,14 @@ msgstr "Этот документ не сохранен!"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "This file is a public view attachment."
-msgstr "Этот файл является приложением для публичного просмотра."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "This file is attached to the current record."
-msgstr "Этот файл прикреплен к текущей записи."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2098,9 +2095,6 @@ msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
 "it, please first download it from the original source and upload it in Odoo."
 msgstr ""
-"Этот тип изображения не поддерживается для обрезки.<br/>Если вы хотите "
-"обрезать изображение, пожалуйста, сначала скачайте его из оригинального "
-"источника и загрузите в Odoo."
 
 #. module: web_editor
 #. openerp-web
@@ -2126,8 +2120,6 @@ msgid ""
 "To save a snippet, we need to save all your previous modifications and "
 "reload the page."
 msgstr ""
-"Чтобы сохранить сниппет, нужно сохранить все предыдущие изменения и "
-"перезагрузить страницу."
 
 #. module: web_editor
 #. openerp-web
@@ -2139,7 +2131,7 @@ msgstr "К какому URL должна вести эта ссылка?"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Toaster"
-msgstr "Тостер"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2173,7 +2165,7 @@ msgstr "Прозрачный"
 #: code:addons/web_editor/static/src/xml/wysiwyg_colorpicker.xml:0
 #, python-format
 msgid "Transparent colors"
-msgstr "Прозрачные цвета"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2229,7 +2221,7 @@ msgstr "Неупорядоченный список"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "Upload a document"
-msgstr "Загрузить документ"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2241,7 +2233,7 @@ msgstr "Загрузить изображение"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Valencia"
-msgstr "Валенсия"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2290,7 +2282,7 @@ msgstr "Посмотреть"
 #: code:addons/web_editor/static/src/xml/ace.xml:0
 #, python-format
 msgid "Views and Assets bundles"
-msgstr "Пакеты представлений и активов"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2302,12 +2294,12 @@ msgstr "Vimeo"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Walden"
-msgstr "Уолден"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Wavy"
-msgstr "Волнистый"
+msgstr ""
 
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_web_editor_converter_test_sub
@@ -2345,7 +2337,7 @@ msgstr "Xl"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "Xpro"
-msgstr "Xpro"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2362,8 +2354,6 @@ msgid ""
 "You can upload documents with the button located in the top left of the "
 "screen."
 msgstr ""
-"Загрузить документы можно с помощью кнопки, расположенной в верхней левой "
-"части экрана."
 
 #. module: web_editor
 #. openerp-web
@@ -2377,7 +2367,7 @@ msgstr "Вы можете загрузить изображения по кно�
 #: code:addons/web_editor/controllers/main.py:0
 #, python-format
 msgid "You need to specify either data or url to create an attachment."
-msgstr "Для создания вложения необходимо указать либо данные, либо url."
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2427,7 +2417,7 @@ msgstr "авто"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "darken"
-msgstr "темнее"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2442,7 +2432,7 @@ msgstr ""
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "exclusion"
-msgstr "исключения"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2461,17 +2451,17 @@ msgstr ""
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "lighten"
-msgstr "светлый"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "multiply"
-msgstr "несколько"
+msgstr ""
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "overlay"
-msgstr "наложение"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web
@@ -2484,7 +2474,7 @@ msgstr "px"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
 msgid "screen"
-msgstr "экран"
+msgstr ""
 
 #. module: web_editor
 #. openerp-web

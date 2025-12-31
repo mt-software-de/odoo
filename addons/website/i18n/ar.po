@@ -23,7 +23,7 @@
 # Martin Trigaux, 2020
 # Mustafa Rawi <mustafa@cubexco.com>, 2021
 # Mohamed Abuelmagd <mabuelmagd12@gmail.com>, 2021
-# Malaz Abuidris <msea@odoo.com>, 2024
+# Malaz Abuidris <msea@odoo.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -31,7 +31,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 14:40+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Malaz Abuidris <msea@odoo.com>, 2024\n"
+"Last-Translator: Malaz Abuidris <msea@odoo.com>, 2023\n"
 "Language-Team: Arabic (https://app.transifex.com/odoo/teams/41243/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4634,7 +4634,7 @@ msgstr "عرض عمل "
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action
 #: model_terms:ir.ui.view,arch_db:website.template_footer_call_to_action
 msgid "Join us and make your company a better place."
-msgstr "انضم إلينا واجعل من شركتك مكاناً أفضل. "
+msgstr "انضم إلينا واجعل شركتنا مكاناً أفضل. "
 
 #. module: website
 #. openerp-web
@@ -7732,7 +7732,7 @@ msgstr "القائمة العلوية "
 #: code:addons/website/models/website.py:0
 #, python-format
 msgid "Top Menu for Website %s"
-msgstr "القائمة العلوية للموقع الإلكتروني %s "
+msgstr "القائمة العلوية للموقع الإلكترونية %s "
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options_background_options

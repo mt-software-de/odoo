@@ -24,8 +24,7 @@
 # Cécile Collart <cco@odoo.com>, 2021
 # Friederike Fasterling-Nesselbosch, 2022
 # Martin Trigaux, 2022
-# Sergio Zanchetta <primes2h@gmail.com>, 2024
-# Marianna Ciofani, 2024
+# Sergio Zanchetta <primes2h@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -33,7 +32,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 10:15+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Marianna Ciofani, 2024\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -382,7 +381,8 @@ msgstr "<i class=\"fa fa-fw fa-comments\"/><b>Invia messaggio</b>"
 msgid ""
 "<i class=\"fa fa-fw o_button_icon fa-arrow-right\"/> Configure Email Servers"
 msgstr ""
-"<i class=\"fa fa-fw o_button_icon fa-arrow-right\"/> Configura server e-mail"
+"<i class=\"fa fa-fw o_button_icon fa-arrow-right\"/> Configura server di "
+"posta"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_invoice_page
@@ -3267,8 +3267,8 @@ msgid ""
 "Changing VAT number is not allowed once invoices have been issued for your "
 "account. Please contact us directly for this operation."
 msgstr ""
-"Non è consentito cambiare la partita IVA dopo l'emissione delle fatture per "
-"il conto. Per questa operazione contattarci direttamente."
+"Impossibile modificare la partita IVA dopo l'emissione delle fatture per il "
+"conto. Per questa operazione contattarci direttamente."
 
 #. module: account
 #: code:addons/account/controllers/portal.py:0
@@ -3277,8 +3277,8 @@ msgid ""
 "Changing your company name is not allowed once invoices have been issued for"
 " your account. Please contact us directly for this operation."
 msgstr ""
-"Non è consentito cambiare il nome dell'azienda dopo l'emissione delle "
-"fatture per il conto. Per questa operazione contattarci direttamente."
+"Impossibile modificare il nome dell'azienda dopo l'emissione delle fatture "
+"per il conto. Per questa operazione contattarci direttamente."
 
 #. module: account
 #: code:addons/account/controllers/portal.py:0
@@ -3287,8 +3287,8 @@ msgid ""
 "Changing your name is not allowed once invoices have been issued for your "
 "account. Please contact us directly for this operation."
 msgstr ""
-"Non è consentito cambiare il proprio nome dopo l'emissione delle fatture per"
-" il conto. Per questa operazione contattarci direttamente."
+"Impossibile modificare il nome dopo l'emissione delle fatture per il conto. "
+"Per questa operazione contattarci direttamente."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account_template__chart_template_id
@@ -6794,13 +6794,13 @@ msgstr "Fatturate"
 #: model_terms:ir.ui.view,arch_db:account.view_invoice_tree
 #, python-format
 msgid "Invoices"
-msgstr "Fatture"
+msgstr "Fatture cliente"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_my_home_invoice
 #: model_terms:ir.ui.view,arch_db:account.portal_my_home_menu_invoice
 msgid "Invoices &amp; Bills"
-msgstr "Fatture"
+msgstr "Fatture cliente/fornitore"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_account_invoice_report_all
@@ -7809,19 +7809,19 @@ msgstr "Corrisponde a espressione regolare"
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model__match_text_location_label
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model_template__match_text_location_label
 msgid "Match Text Location Label"
-msgstr "Abbinamento testo in posizione etichetta"
+msgstr "Abbinamento testo in posizione etichetta "
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model__match_text_location_note
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model_template__match_text_location_note
 msgid "Match Text Location Note"
-msgstr "Abbinamento testo in posizione nota"
+msgstr "Abbinamento testo in posizione nota "
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model__match_text_location_reference
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model_template__match_text_location_reference
 msgid "Match Text Location Reference"
-msgstr "Abbinamento testo in posizione riferimento"
+msgstr "Abbinamento testo in posizione riferimento "
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model__rule_type__invoice_matching
@@ -9521,9 +9521,7 @@ msgstr "Risconti attivi"
 #: model:ir.model,name:account.model_account_reconcile_model
 msgid ""
 "Preset to create journal entries during a invoices and payments matching"
-msgstr ""
-"Preimpostazione per creare registrazioni contabili dall'abbinamento tra "
-"fatture e pagamenti"
+msgstr "Crea registrazioni contabili dall'abbinamento tra fatture e pagamenti"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -10333,7 +10331,7 @@ msgstr "Arrotondare per riga"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.rounding_form_view
 msgid "Rounding Form"
-msgstr "Arrotondamento - Vista scheda"
+msgstr "Arrotondamento - Vista modulo"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_cash_rounding__rounding_method
@@ -10476,7 +10474,7 @@ msgstr "Salva come nuovo modello"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Save this page and come back here to set up the feature."
-msgstr "Per impostare la funzionalità salvare questa pagina e ritornare qui."
+msgstr "Salvare la pagina e tornare qui per impostare la funzionalità."
 
 #. module: account
 #: code:addons/account/models/account_payment.py:0
@@ -10797,7 +10795,7 @@ msgstr "Invia la fattura e controlla cosa verrà ricevuto dal cliente."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_tour_upload_bill_email_confirm
 msgid "Send your email to"
-msgstr "Invia una e-mail a"
+msgstr "Invia une e-mail a"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_search
@@ -12572,7 +12570,7 @@ msgid ""
 "The fiscal position determines the taxes/accounts used for this contact."
 msgstr ""
 "La posizione fiscale determina le imposte e/o i conti usati per questo "
-"contatto."
+"contatto. "
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_automatic_entry_wizard_form
@@ -12944,7 +12942,7 @@ msgid ""
 "customer/vendor categories."
 msgstr ""
 "Il modello di riconciliazione viene applicato solo alle categorie "
-"cliente/venditore selezionate."
+"cliente/venditore selezionate. "
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_reconcile_model__match_partner_ids
@@ -12968,7 +12966,7 @@ msgstr ""
 "Il modello di riconciliazione viene applicato solo al tipo di operazione selezionato:\n"
 "        * importo ricevuto: applicato solo alla ricezione di un importo.\n"
 "        * importo pagato: applicato solo al pagamento di un importo.\n"
-"        * importo pagato/ricevuto: applicato in entrambi i casi."
+"        * importo pagato/ricevuto: applicato in entrambi i casi. "
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_reconcile_model__match_partner
@@ -13530,8 +13528,8 @@ msgid ""
 "This payment term will be used instead of the default one for purchase "
 "orders and vendor bills"
 msgstr ""
-"Termine di pagamento utilizzato, al posto di quello predefinito, per ordini "
-"di acquisto e fatture fornitori."
+"Questo termine di pagamento viene usato, al posto del predefinito, per "
+"ordini di acquisto e fatture fornitori "
 
 #. module: account
 #: model:ir.model.fields,help:account.field_res_partner__property_payment_term_id
@@ -13540,8 +13538,8 @@ msgid ""
 "This payment term will be used instead of the default one for sales orders "
 "and customer invoices"
 msgstr ""
-"Termine di pagamento utilizzato, al posto di quello predefinito, per ordini "
-"di vendita e fatture clienti."
+"Questo termine di pagamento viene usato, al posto del predefinito, per "
+"ordini di vendita e fatture clienti"
 
 #. module: account
 #: code:addons/account/models/product.py:0
@@ -13713,7 +13711,7 @@ msgstr "Totale righe delle operazioni."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Track costs &amp; revenues by project, department, etc"
-msgstr "Monitora costi e ricavi per progetto, ufficio ecc..."
+msgstr "Monitora costi e ricavi per progetto, ufficio ecc."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__transaction_type
@@ -15182,7 +15180,7 @@ msgstr "es. GAAP, IFRS ecc..."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_form
 msgid "e.g. Give a phone call, check with others , ..."
-msgstr "Es. Fare una telefonata, controllare con altri..."
+msgstr "Es. Fare una telefonata, Controllare con altri..."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form

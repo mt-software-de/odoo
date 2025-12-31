@@ -16,7 +16,6 @@
 # JanaAvalah, 2023
 # Anna, 2023
 # Leaanika Randmets, 2023
-# Katrin Kampura, 2024
 # 
 msgid ""
 msgstr ""
@@ -24,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-16 13:33+0000\n"
 "PO-Revision-Date: 2020-09-07 08:17+0000\n"
-"Last-Translator: Katrin Kampura, 2024\n"
+"Last-Translator: Leaanika Randmets, 2023\n"
 "Language-Team: Estonian (https://app.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,7 +199,7 @@ msgstr ""
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar__two_weeks_explanation
 msgid "Explanation"
-msgstr "Selgitus"
+msgstr ""
 
 #. module: resource
 #: model:ir.model.fields.selection,name:resource.selection__resource_calendar_attendance__dayofweek__4
@@ -211,7 +210,7 @@ msgstr "Reede"
 #: code:addons/resource/models/resource.py:0
 #, python-format
 msgid "Friday Afternoon"
-msgstr "reede pärastlõuna"
+msgstr ""
 
 #. module: resource
 #: code:addons/resource/models/resource.py:0
@@ -352,7 +351,7 @@ msgstr "Esmaspäev"
 #: code:addons/resource/models/resource.py:0
 #, python-format
 msgid "Monday Afternoon"
-msgstr "esmaspäeva pärastlõuna"
+msgstr ""
 
 #. module: resource
 #: code:addons/resource/models/resource.py:0
@@ -560,7 +559,7 @@ msgstr "The efficiency factor cannot be equal to 0."
 #: code:addons/resource/models/resource.py:0
 #, python-format
 msgid "The start date of the time off must be earlier than the end date."
-msgstr "Puudumise alguskuupäev peab olema enne lõppkuupäeva."
+msgstr ""
 
 #. module: resource
 #: model:ir.model.fields,help:resource.field_resource_calendar__tz
@@ -596,7 +595,7 @@ msgstr "Neljapäev"
 #: code:addons/resource/models/resource.py:0
 #, python-format
 msgid "Thursday Afternoon"
-msgstr "neljapäeva pärastlõuna"
+msgstr ""
 
 #. module: resource
 #: code:addons/resource/models/resource.py:0
@@ -614,7 +613,7 @@ msgstr "Puudumised"
 #. module: resource
 #: model:ir.model.fields,field_description:resource.field_resource_calendar_leaves__time_type
 msgid "Time Type"
-msgstr "Aja tüüp"
+msgstr ""
 
 #. module: resource
 #: model:ir.model.constraint,message:resource.constraint_resource_resource_check_time_efficiency
@@ -638,7 +637,7 @@ msgstr "Teisipäev"
 #: code:addons/resource/models/resource.py:0
 #, python-format
 msgid "Tuesday Afternoon"
-msgstr "teisipäeva pärastlõuna"
+msgstr ""
 
 #. module: resource
 #: code:addons/resource/models/resource.py:0
@@ -671,7 +670,7 @@ msgstr "Kolmapäev"
 #: code:addons/resource/models/resource.py:0
 #, python-format
 msgid "Wednesday Afternoon"
-msgstr "kolmapäeva pärastlõuna"
+msgstr ""
 
 #. module: resource
 #: code:addons/resource/models/resource.py:0

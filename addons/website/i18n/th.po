@@ -13,7 +13,7 @@
 # Odoo Thaidev <odoothaidev@gmail.com>, 2020
 # Khwunchai Jaengsawang <khwunchai.j@ku.th>, 2021
 # Wichanon Jamwutthipreecha, 2022
-# Rasareeyar Lappiam, 2024
+# Rasareeyar Lappiam, 2023
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 14:40+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Rasareeyar Lappiam, 2024\n"
+"Last-Translator: Rasareeyar Lappiam, 2023\n"
 "Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgstr "\" alert with a"
 #: code:addons/website/models/website_rewrite.py:0
 #, python-format
 msgid "\"URL from\" can not be empty."
-msgstr "\"URL จาก\" ต้องไม่เว้นว่าง"
+msgstr ""
 
 #. module: website
 #: code:addons/website/models/website_rewrite.py:0
@@ -237,7 +237,7 @@ msgstr "100%"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
 msgid "11"
-msgstr "11"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
@@ -258,7 +258,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
 msgid "15"
-msgstr "15"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
@@ -491,8 +491,6 @@ msgid ""
 "<br/><br/>\n"
 "                    Example of rule:<br/>"
 msgstr ""
-"<br/><br/>\n"
-"                    ตัวอย่างกฎ:<br/>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -1024,8 +1022,6 @@ msgid ""
 "A Google Map error occurred. Make sure to read the key configuration popup "
 "carefully."
 msgstr ""
-"เกิดข้อผิดพลาดของ Google Map "
-"ตรวจสอบให้แน่ใจว่าได้อ่านป๊อปอัปการกำหนดค่าคีย์อย่างระมัดระวัง"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_text_image
@@ -3222,7 +3218,7 @@ msgstr "เปิดใช้งานการเรียกเก็บเง
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Enable the right google map APIs in your google account"
-msgstr "เปิดใช้งาน Google Map API ที่ถูกต้องในบัญชี Google ของคุณ"
+msgstr ""
 
 #. module: website
 #. openerp-web
@@ -5035,7 +5031,7 @@ msgstr "การดำเนินการหลัก"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Make sure billing is enabled"
-msgstr "ตรวจสอบให้แน่ใจว่าเปิดใช้งานการเรียกเก็บเงินแล้ว"
+msgstr ""
 
 #. module: website
 #. openerp-web
@@ -5045,15 +5041,13 @@ msgid ""
 "Make sure to wait if errors keep being shown: sometimes enabling an API "
 "allows to use it immediately but Google keeps triggering errors for a while"
 msgstr ""
-"ตรวจสอบให้แน่ใจว่าได้รอ หากมีข้อผิดพลาดแสดงอยู่: บางครั้งการเปิดใช้งาน API "
-"ทำให้สามารถใช้งานได้ทันที แต่ Google จะคอยกระตุ้นข้อผิดพลาดอยู่พักหนึ่ง"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Make sure your settings are properly configured:"
-msgstr "ตรวจสอบให้แน่ใจว่าการตั้งค่าของคุณได้รับการกำหนดค่าอย่างถูกต้อง:"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.user_navbar
@@ -5080,14 +5074,14 @@ msgstr "จัดการหน้านี้"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Maps JavaScript API"
-msgstr "แผนที่ JavaScript API"
+msgstr ""
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Maps Static API"
-msgstr "แผนที่ API แบบคงที่"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_google_map_options
@@ -5204,7 +5198,7 @@ msgstr "Middle"
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Min-Height"
-msgstr "ความสูงขั้นต่ำ"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_blockquote_options
@@ -5231,7 +5225,7 @@ msgstr "มือถือ"
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Mobile Alignment"
-msgstr "การจัดตำแหน่งมือถือ"
+msgstr ""
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_visitor__mobile
@@ -5945,7 +5939,7 @@ msgstr "ยา"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Places API"
-msgstr "API สถานที่"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -6682,7 +6676,7 @@ msgstr "ลำดับ"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Serve font from Google servers"
-msgstr "ให้บริการฟอนต์จากเซิร์ฟเวอร์ของ Google"
+msgstr ""
 
 #. module: website
 #: model:ir.model,name:website.model_ir_actions_server
@@ -7479,8 +7473,6 @@ msgid ""
 "This font already exists, you can only add it as a local font to replace the"
 " server version."
 msgstr ""
-"ฟอนต์นี้มีอยู่แล้ว "
-"คุณสามารถเพิ่มเป็นฟอนต์ในเครื่องเพื่อแทนที่เวอร์ชันเซิร์ฟเวอร์เท่านั้น"
 
 #. module: website
 #. openerp-web
@@ -7488,7 +7480,7 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "This font is hosted and served to your visitors by Google servers"
-msgstr "ฟอนต์นี้โฮสต์และให้บริการแก่ผู้เยี่ยมชมของคุณโดยเซิร์ฟเวอร์ของ Google"
+msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -7764,7 +7756,7 @@ msgstr "Translate Attribute"
 #: code:addons/website/static/src/js/editor/wysiwyg_multizone_translate.js:0
 #, python-format
 msgid "Translate Selection Option"
-msgstr "ตัวเลือกการแปล"
+msgstr ""
 
 #. module: website
 #. openerp-web

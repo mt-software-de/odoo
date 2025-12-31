@@ -18,10 +18,9 @@
 # Oliver Ernest, 2022
 # Eneli Õigus <enelioigus@gmail.com>, 2022
 # Rivo Zängov <eraser@eraser.ee>, 2022
+# Anna, 2023
 # Leaanika Randmets, 2023
 # JanaAvalah, 2023
-# Peeter Mark, 2024
-# Anna, 2024
 # 
 msgid ""
 msgstr ""
@@ -29,7 +28,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 11:23+0000\n"
 "PO-Revision-Date: 2020-09-07 08:14+0000\n"
-"Last-Translator: Anna, 2024\n"
+"Last-Translator: JanaAvalah, 2023\n"
 "Language-Team: Estonian (https://app.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -779,7 +778,7 @@ msgstr "Lubatud meilid"
 #: model:ir.model.fields.selection,name:mail.selection__mail_moderation__status__allow
 #, python-format
 msgid "Always Allow"
-msgstr "Alati luba"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/res_partner.py:0
@@ -3076,7 +3075,7 @@ msgstr "on aktiivne"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_moderation_view_search
 msgid "Is Allowed"
-msgstr "On lubatud"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_moderation_view_search
@@ -3769,7 +3768,7 @@ msgstr "Sõnumid"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_message_search
 msgid "Messages Search"
-msgstr "Sõnumite Otsing"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -6529,14 +6528,6 @@ msgid ""
 msgstr ""
 
 #. module: mail
-#: code:addons/mail/models/ir_config_parameter.py:0
-#, python-format
-msgid ""
-"Value for `mail.catchall.domain.allowed` cannot be validated.\n"
-"It should be a comma separated list of domains e.g. example.com,example.org."
-msgstr ""
-
-#. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/attachment_viewer/attachment_viewer.xml:0
 #: code:addons/mail/static/src/xml/thread.xml:0
@@ -7230,7 +7221,7 @@ msgstr "poolt läbi"
 #: code:addons/mail/static/src/xml/many2one_avatar_user.xml:0
 #, python-format
 msgid "value"
-msgstr "väärtus"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_type__delay_unit__weeks

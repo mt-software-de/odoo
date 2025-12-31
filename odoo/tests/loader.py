@@ -8,39 +8,47 @@ import unittest
 from pathlib import Path
 
 from .. import tools
-from .common import TagsSelector, OdooSuite
+from .common import TagsSelector, OdooSuite, BaseCase
 from .runner import OdooTestResult
 
 
 _logger = logging.getLogger(__name__)
-def get_test_modules(module):
+def get_test_modules(module, report=False):
     """ Return a list of module for the addons potentially containing tests to
     feed unittest.TestLoader.loadTestsFromModule() """
     # Try to import the module
-    results = _get_tests_modules('odoo.addons', module)
+    results = _get_tests_modules('odoo.addons', module, report)
     results += list(_get_upgrade_test_modules(module))
 
     return results
 
 
-def _get_tests_modules(path, module):
+def _get_tests_modules(path, module, report=False):
     modpath = '%s.%s' % (path, module)
+    error_while_loading = False
     try:
         mod = importlib.import_module('.tests', modpath)
     except ImportError as e:  # will also catch subclass ModuleNotFoundError of P3.6
         # Hide ImportErrors on `tests` sub-module, but display other exceptions
         if e.name == modpath + '.tests' and e.msg.startswith('No module named'):
             return []
-        _logger.exception('Can not `import %s`.', module)
-        return []
+        error_while_loading = sys.exc_info()
     except Exception as e:
+        error_while_loading = sys.exc_info()
+
+    if not error_while_loading:
+        if hasattr(mod, 'fast_suite') or hasattr(mod, 'checks'):
+            _logger.warning(
+                "Found deprecated fast_suite or checks attribute in test module "
+                "%s. These have no effect in or after version 8.0.",
+                mod.__name__)
+
+    if error_while_loading:
+        test_results = OdooTestResult()
+        test_results.addError(BaseCase(), error_while_loading)
+        report.update(test_results)
         _logger.exception('Can not `import %s`.', module)
         return []
-    if hasattr(mod, 'fast_suite') or hasattr(mod, 'checks'):
-        _logger.warning(
-            "Found deprecated fast_suite or checks attribute in test module "
-            "%s. These have no effect in or after version 8.0.",
-            mod.__name__)
 
     result = [mod_obj for name, mod_obj in inspect.getmembers(mod, inspect.ismodule)
               if name.startswith('test_')]
@@ -69,7 +77,7 @@ def _get_upgrade_test_modules(module):
                 yield pymod
 
 
-def make_suite(module_names, position='at_install'):
+def make_suite(module_names, position='at_install', report=False):
     """ Creates a test suite for all the tests in the specified module,
     filtered by the provided ``position`` and the current test tags
 
@@ -81,7 +89,7 @@ def make_suite(module_names, position='at_install'):
     tests = (
         t
         for module_name in module_names
-        for m in get_test_modules(module_name)
+        for m in get_test_modules(module_name, report)
         for t in unwrap_suite(unittest.TestLoader().loadTestsFromModule(m))
         if position_tag.check(t) and config_tags.check(t)
     )

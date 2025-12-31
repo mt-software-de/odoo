@@ -44,7 +44,6 @@
 # Víctor Martínez <victor.martinez@tecnativa.com>, 2022
 # Josep Anton Belchi, 2023
 # Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2023
-# César J. Santacruz, 2023
 # 
 msgid ""
 msgstr ""
@@ -52,7 +51,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: César J. Santacruz, 2023\n"
+"Last-Translator: Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1582,8 +1581,8 @@ msgstr ""
 "\n"
 "    Fija la fecha de bloqueo y hazla irreversible:\n"
 "\n"
-"    * No puede imponer restricciones más estrictas a los asesores que a los usuarios. Por lo tanto, la fecha de bloqueo de todos los usuarios debe ser anterior (o igual) a la fecha de bloqueo de la factura/cuenta.\n"
-"    * No puede bloquear un periodo que no ha terminado por lo tanto, la fecha de bloqueo de todos los usuarios debe ser anterior (o igual) al último día del mes previo.\n"
+"    * No puedes imponer restricciones más estrictas a los asesores que a los usuarios. Por lo tanto, la fecha de bloqueo de todos los usuarios debe ser anterior (o igual) a la fecha de bloqueo de la factura/cuenta.\n"
+"    * No puedes bloquear un periodo que no ha terminadom por lo tanto, la fecha de bloqueo de todos los usuarios debe ser anterior (o igual) al último día del mes previo.\n"
 "    * Cualquier fecha de bloqueo para todos los usuarios nueva debe ser posterior (o igual) a la fecha previa.\n"
 "    "
 
@@ -12750,7 +12749,7 @@ msgstr "¡Solo se puede renombrar un campo a la vez!"
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Can't compare more than two views."
-msgstr "No se pueden comparar más de dos vistas."
+msgstr "No puedes comparar más de dos vistas."
 
 #. module: base
 #: model:res.country,name:base.ca
@@ -27549,10 +27548,6 @@ msgid ""
 "install the new \"UPS Shipping\" module and uninstall this one as soon as "
 "possible. This integration will stop working in 2024."
 msgstr ""
-"Esta es la integración de sistemas heredados con UPS que ya no es "
-"compatible. Instale el nuevo modulo de \"UPS Shipping\" y desinstale este "
-"tan pronto como le sea posible. Esta integración dejará de funcionar en el "
-"2024. "
 
 #. module: base
 #: model:ir.module.module,summary:base.module_delivery_ups_rest
@@ -27997,7 +27992,7 @@ msgstr ""
 #, python-format
 msgid "Sorry, you are not allowed to access these fields on attachments."
 msgstr ""
-"Lo sentimos, no está autorizado para acceder a estos campos en los adjuntos."
+"Lo sentimos, no puedes acceder a estos campos en los archivos adjuntos."
 
 #. module: base
 #: code:addons/base/models/ir_attachment.py:0
@@ -30347,7 +30342,7 @@ msgstr "Código UNSPSC de productos"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping (Legacy)"
-msgstr "Métodos de envío de UPS (Antiguo)"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups_rest

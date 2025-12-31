@@ -5,8 +5,7 @@
 # Translators:
 # Cécile Collart <cco@odoo.com>, 2021
 # Braulio D. López Vázquez <bdl@odoo.com>, 2023
-# Wil Odoo, 2023
-# Fernanda Alvarez, 2024
+# Fernanda Alvarez, 2023
 # 
 msgid ""
 msgstr ""
@@ -14,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 15:41+0000\n"
 "PO-Revision-Date: 2020-09-07 08:13+0000\n"
-"Last-Translator: Fernanda Alvarez, 2024\n"
+"Last-Translator: Fernanda Alvarez, 2023\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -392,8 +391,7 @@ msgstr "Conversaciones manejadas"
 msgid ""
 "Copy and paste this code into your website, within the &lt;head&gt; tag:"
 msgstr ""
-"Copie y pegue este código en la etiqueta &lt;head&gt; del HTML de su sitio "
-"web:"
+"Copie y pegue este código en su sitio web, en la etiqueta HTML &lt;head&gt;:"
 
 #. module: im_livechat
 #: model:ir.model.fields,field_description:im_livechat.field_im_livechat_channel_rule__country_ids
@@ -605,9 +603,9 @@ msgid ""
 "Settings and select the Website Live Chat Channel you want to add to your "
 "website."
 msgstr ""
-"Para los sitios creados con el creador de sitios web de Odoo, vaya a Sitio "
-"web &gt; Configuración &gt; Ajustes y seleccione el canal de chat en vivo "
-"del sitio web que desea agregar a su sitio web."
+"Para sitios web creados con el CMS de Odoo, vaya a Sitio web &gt; "
+"configuración &gt; ajustes y seleccione Chat en vivo del Sitio web que desea"
+" agregar a su sitio web."
 
 #. module: im_livechat
 #: model:ir.model.fields,help:im_livechat.field_im_livechat_channel_rule__sequence
@@ -657,7 +655,7 @@ msgstr "Historial"
 #. module: im_livechat
 #: model:ir.model.fields,field_description:im_livechat.field_im_livechat_report_channel__start_date_hour
 msgid "Hour of start Date of session"
-msgstr "Hora y fecha de inicio de la sesión"
+msgstr "Hora de la fecha de inicio de sesión "
 
 #. module: im_livechat
 #. openerp-web
@@ -1387,13 +1385,6 @@ msgstr "Visto por:"
 #. module: im_livechat
 #. openerp-web
 #: code:addons/im_livechat/static/src/legacy/public_livechat.xml:0
-#, python-format
-msgid "Send"
-msgstr "Enviar"
-
-#. module: im_livechat
-#. openerp-web
-#: code:addons/im_livechat/static/src/legacy/public_livechat.xml:0
 #: code:addons/im_livechat/static/src/legacy/public_livechat.xml:0
 #, python-format
 msgid "Sent"
@@ -1603,7 +1594,7 @@ msgstr "Inténtelo de nuevo"
 #. module: im_livechat
 #: model:ir.model.fields,field_description:im_livechat.field_im_livechat_channel_rule__regex_url
 msgid "URL Regex"
-msgstr "Expresión regular de URL"
+msgstr "Regex de URL"
 
 #. module: im_livechat
 #: model:ir.model.fields,help:im_livechat.field_im_livechat_channel__web_page

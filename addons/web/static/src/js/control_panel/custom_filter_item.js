@@ -151,6 +151,10 @@ odoo.define('web.CustomFilterItem', function (require) {
          * Convert all conditions to prefilters.
          * @private
          */
+        _hook_preFilter_onApply(preFilter, type, field ,operator, domainValue){
+           return preFilter
+        }
+
         _onApply() {
             const preFilters = this.state.conditions.map(condition => {
                 const field = this.fields[condition.field];
@@ -193,7 +197,7 @@ odoo.define('web.CustomFilterItem', function (require) {
                     domain: Domain.prototype.arrayToString(domainArray),
                     type: 'filter',
                 };
-                return preFilter;
+                return this._hook_preFilter_onApply(preFilter,type,field,operator,domainValue);
             });
 
             this.model.dispatch('createNewFilters', preFilters);

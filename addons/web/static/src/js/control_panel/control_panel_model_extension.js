@@ -1140,11 +1140,15 @@ odoo.define("web/static/src/js/control_panel/control_panel_model_extension.js", 
         /**
          * @returns {Object[]}
          */
+        _getFacetHooked(result, activities) {
+            return result
+        }
+
         _getFacets() {
             const facets = this._getGroups().map(({ activities, type, id }) => {
                 const values = this._getFacetDescriptions(activities, type);
                 const title = activities[0].filter.description;
-                return { groupId: id, title, type, values };
+                return this._getFacetHooked({ groupId: id, title, type, values },activities);
             });
             return facets;
         }

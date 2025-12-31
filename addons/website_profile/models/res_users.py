@@ -16,11 +16,11 @@ class Users(models.Model):
 
     def __init__(self, pool, cr):
         init_res = super(Users, self).__init__(pool, cr)
-        pool[self._name].SELF_WRITEABLE_FIELDS = list(
+        type(self).SELF_WRITEABLE_FIELDS = list(
             set(
                 self.SELF_WRITEABLE_FIELDS +
                 ['country_id', 'city', 'website', 'website_description', 'website_published']))
-        pool[self._name].SELF_READABLE_FIELDS = pool[self._name].SELF_READABLE_FIELDS + ['karma']
+        type(self).SELF_READABLE_FIELDS = type(self).SELF_READABLE_FIELDS + ['karma']
         return init_res
 
     @api.model

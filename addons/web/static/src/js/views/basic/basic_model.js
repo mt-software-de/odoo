@@ -2497,7 +2497,11 @@ var BasicModel = AbstractModel.extend({
                     return Promise.reject();
                 }
                 result = result[0];
-                record.data = _.extend({}, record.data, result);
+                  if (options.fieldNames) {
+                    record.data = _.extend({}, record.data, result);
+                } else {
+                    record.data = _.extend({}, {}, result);
+                }
             })
             .then(function () {
                 self._parseServerData(fieldNames, record, record.data);
@@ -3659,11 +3663,13 @@ var BasicModel = AbstractModel.extend({
 
         if (element.parentID) {
             var parent = this.localData[element.parentID];
-            if (parent.type === 'list' && parent.parentID) {
-                parent = this.localData[parent.parentID];
-            }
-            if (parent.type === 'record') {
-                evalContext.parent = this._getRecordEvalContext(parent, forDomain);
+            if (parent) {
+                if (parent.type === 'list' && parent.parentID) {
+                    parent = this.localData[parent.parentID];
+                }
+                if (parent.type === 'record') {
+                    evalContext.parent = this._getRecordEvalContext(parent, forDomain);
+                }
             }
         }
         // Uses "current_company_id" because "company_id" would conflict with all the company_id fields

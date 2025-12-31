@@ -16,6 +16,7 @@
 # Martin Trigaux, 2021
 # Robert Frykelius <robert.frykelius@linserv.se>, 2021
 # 3eec91a23d05c632ffac786ac42b81b8_b6fff7b <8985b7bc57db860af29969457dbb51b3_1018915>, 2021
+# Anders Wallenquist <anders.wallenquist@vertel.se>, 2021
 # Victor Ekström, 2021
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2022
 # emavertel, 2022
@@ -25,8 +26,6 @@
 # Robin Calvin, 2023
 # Lasse L, 2023
 # Jakob Krabbe <jakob.krabbe@vertel.se>, 2023
-# Wil Odoo, 2024
-# Anders Wallenquist <anders.wallenquist@vertel.se>, 2024
 # 
 msgid ""
 msgstr ""
@@ -34,7 +33,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Anders Wallenquist <anders.wallenquist@vertel.se>, 2024\n"
+"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14005,7 +14004,7 @@ msgstr "Skapa en meny"
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_res_partner_bank_account_form
 msgid "Create a bank account"
-msgstr "Skapa ett bankkonto"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_ui_view_custom
@@ -19461,7 +19460,7 @@ msgstr "LGPL version 3"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lt_reports
 msgid "Lithuania - Accounting Reports"
-msgstr "Redovisningsrapporter för Serbien"
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -29628,7 +29627,7 @@ msgstr "UNSPSC-produktkoder"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping (Legacy)"
-msgstr "Årlig momsrappport för Luxemburg - 2023-uppdatering"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups_rest
@@ -30324,7 +30323,7 @@ msgstr "Värde"
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Value '%s' not found in selection field '%%(field)s'"
-msgstr "Värdet %s fanns inte i det valda fältet %%(field)s"
+msgstr "Värdet %s fanns inte i det valda fältet %%(field)S"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_property__value_binary

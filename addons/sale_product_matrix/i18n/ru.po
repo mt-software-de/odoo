@@ -7,7 +7,6 @@
 # ILMIR <karamov@it-projects.info>, 2020
 # Константин Коровин <korovin74@gmail.com>, 2020
 # Irina Fedulova <istartlin@gmail.com>, 2020
-# Wil Odoo, 2024
 # 
 msgid ""
 msgstr ""
@@ -15,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-01 07:29+0000\n"
 "PO-Revision-Date: 2020-09-07 08:18+0000\n"
-"Last-Translator: Wil Odoo, 2024\n"
+"Last-Translator: Irina Fedulova <istartlin@gmail.com>, 2020\n"
 "Language-Team: Russian (https://app.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +26,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_product__product_add_mode
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__product_add_mode
 msgid "Add product mode"
-msgstr "Режим добавления продукта"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_product_product__product_add_mode
@@ -46,12 +45,12 @@ msgstr "Отображаемое имя"
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid_product_tmpl_id
 msgid "Grid Product Tmpl"
-msgstr "Матрица Шаблонов Продукта"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid_update
 msgid "Grid Update"
-msgstr "Обновление матрицы"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__id
@@ -75,22 +74,22 @@ msgstr "Последнее изменение"
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid
 msgid "Matrix local storage"
-msgstr "Матричное локальное хранение"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields.selection,name:sale_product_matrix.selection__product_template__product_add_mode__matrix
 msgid "Order Grid Entry"
-msgstr "Заказ Матрица Ввода"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__report_grids
 msgid "Print Variant Grids"
-msgstr "Печать Матрицы Вариантов"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields.selection,name:sale_product_matrix.selection__product_template__product_add_mode__configurator
 msgid "Product Configurator"
-msgstr "Конфигуратор продуктов"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_product_template
@@ -105,12 +104,12 @@ msgstr "Заказ на продажу"
 #. module: sale_product_matrix
 #: model_terms:ir.ui.view,arch_db:sale_product_matrix.product_template_grid_view_form
 msgid "Sales Variant Selection"
-msgstr "Выбор варианта продажи"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_sale_order__grid_product_tmpl_id
 msgid "Technical field for product_matrix functionalities."
-msgstr "Техническая область для функционала матрицы продукта."
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_sale_order__grid
@@ -123,7 +122,7 @@ msgstr ""
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_sale_order__grid_update
 msgid "Whether the grid field contains a new matrix to apply or not."
-msgstr "Содержит ли поле матрицы новую матрицу для применения или нет."
+msgstr ""
 
 #. module: sale_product_matrix
 #: code:addons/sale_product_matrix/models/sale_order.py:0
@@ -131,5 +130,3 @@ msgstr "Содержит ли поле матрицы новую матрицу 
 msgid ""
 "You cannot change the quantity of a product present in multiple sale lines."
 msgstr ""
-"Вы не можете изменить количество товара, представленного в нескольких "
-"строках продажи."

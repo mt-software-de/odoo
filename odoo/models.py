@@ -373,13 +373,6 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
     invalidation or recomputing fields.
     """
 
-    _allow_sudo_commands = True
-    """Allow One2many and Many2many Commands targeting this model in an environment using `sudo()` or `with_user()`.
-    By disabling this flag, security-sensitive models protect themselves
-    against malicious manipulation of One2many or Many2many fields
-    through an environment using `sudo` or a more priviledged user.
-    """
-
     # default values for _transient_vacuum()
     _transient_max_count = lazy_classproperty(lambda _: config.get('osv_memory_count_limit'))
     _transient_max_hours = lazy_classproperty(lambda _: config.get('transient_age_limit'))
@@ -400,7 +393,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
     @api.model
     def _add_field(self, name, field):
         """ Add the given ``field`` under the given ``name`` in the class """
-        cls = self.env.registry[self._name]
+        cls = type(self)
         # add field as an attribute and in cls._fields (for reflection)
         if not isinstance(getattr(cls, name, field), Field):
             _logger.warning("In model %r, field %r overriding existing value", cls._name, name)
@@ -415,7 +408,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         """ Remove the field with the given ``name`` from the model.
             This method should only be used for manual fields.
         """
-        cls = self.env.registry[self._name]
+        cls = type(self)
         field = cls._fields.pop(name, None)
         if hasattr(cls, name):
             delattr(cls, name)
@@ -693,7 +686,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         def is_constraint(func):
             return callable(func) and hasattr(func, '_constrains')
 
-        cls = self.env.registry[self._name]
+        cls = type(self)
         methods = []
         for attr, func in getmembers(cls, is_constraint):
             for name in func._constrains:
@@ -715,7 +708,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
             return callable(func) and hasattr(func, '_onchange')
 
         # collect onchange methods on the model's class
-        cls = self.env.registry[self._name]
+        cls = type(self)
         methods = defaultdict(list)
         for attr, func in getmembers(cls, is_onchange):
             missing = []
@@ -938,7 +931,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
             # collect all the tuples in "lines" (along with their coordinates)
             for i, line in enumerate(lines):
                 for j, cell in enumerate(line):
-                    if isinstance(cell, tuple):
+                    if type(cell) is tuple:
                         bymodels[cell[0]].add(cell[1])
                         xidmap[cell].append((i, j))
             # for each model, xid-export everything and inject in matrix
@@ -2744,7 +2737,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
     @api.model
     def _prepare_setup(self):
         """ Prepare the setup of the model. """
-        cls = self.env.registry[self._name]
+        cls = type(self)
         cls._setup_done = False
 
         # the classes that define this model's base fields and methods
@@ -2760,7 +2753,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
     @api.model
     def _setup_base(self):
         """ Determine the inherited and custom fields of the model. """
-        cls = self.env.registry[self._name]
+        cls = type(self)
         if cls._setup_done:
             return
 
@@ -2850,7 +2843,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
     @api.model
     def _setup_fields(self):
         """ Setup the fields, except for recomputation triggers. """
-        cls = self.env.registry[self._name]
+        cls = type(self)
 
         # set up fields
         bad_fields = []
@@ -2873,7 +2866,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
     @api.model
     def _setup_complete(self):
         """ Setup recomputation triggers, and complete the model setup. """
-        cls = self.env.registry[self._name]
+        cls = type(self)
 
         # register constraints and onchange methods
         cls._init_constraints_onchanges()
@@ -3046,6 +3039,10 @@ Fields:
         """
         data = [(record, {'id': record._ids[0]}) for record in self]
         use_name_get = (load == '_classic_read')
+
+        if 'use_name_get' in self.env.context:
+            use_name_get = self.env.context.get('use_name_get')
+
         for name in fnames:
             convert = self._fields[name].convert_to_read
             for record, vals in data:
@@ -3675,7 +3672,8 @@ Fields:
             # If there are only fields that do not trigger _write (e.g. only
             # determine inverse), the below ensures that `write_date` and
             # `write_uid` are updated (`test_orm.py`, `test_write_date`)
-            if self._log_access and self.ids:
+            log_access = self._get_context_log_access()            
+            if self._log_access and log_access and self.ids:
                 towrite = env.all.towrite[self._name]
                 for record in real_recs:
                     towrite[record.id]['write_uid'] = self.env.uid
@@ -3743,6 +3741,12 @@ Fields:
             self._check_company()
         return True
 
+    def _get_context_log_access(self):
+        log_access = True
+        if 'log_access' in self.env.context:
+            log_access = self.env.context.get('log_access', {}).get(self._name, True)
+        return log_access
+
     def _write(self, vals):
         # low-level implementation of write()
         if not self:
@@ -3756,9 +3760,11 @@ Fields:
 
         # determine SQL values
         columns = []                    # list of (column_name, format, value)
+        
+        log_access = self._get_context_log_access()
 
         for name, val in sorted(vals.items()):
-            if self._log_access and name in LOG_ACCESS_COLUMNS and not val:
+            if name in LOG_ACCESS_COLUMNS and not val:
                 continue
             field = self._fields[name]
             assert field.store
@@ -3769,7 +3775,7 @@ Fields:
             assert field.column_type
             columns.append((name, field.column_format, val))
 
-        if self._log_access:
+        if self._log_access and log_access or 'write_date' in vals or 'write_uid' in vals:
             if not vals.get('write_uid'):
                 columns.append(('write_uid', '%s', self._uid))
             if not vals.get('write_date'):
@@ -4755,14 +4761,12 @@ Fields:
         query = 'SELECT "%s" FROM "%s" WHERE id = %%s' % (parent, self._table)
         for id in self.ids:
             current_id = id
-            seen_ids = {current_id}
             while current_id:
                 cr.execute(query, (current_id,))
                 result = cr.fetchone()
                 current_id = result[0] if result else None
-                if current_id in seen_ids:
+                if current_id == id:
                     return False
-                seen_ids.add(current_id)
         return True
 
     def _check_m2m_recursion(self, field_name):
@@ -5093,8 +5097,6 @@ Fields:
         if not isinstance(flag, bool):
             _logger.warning("deprecated use of sudo(user), use with_user(user) instead", stack_info=True)
             return self.with_user(flag)
-        if flag == self.env.su:
-            return self
         return self.with_env(self.env(su=flag))
 
     def with_user(self, user):
@@ -5724,7 +5726,7 @@ Fields:
         """
         if isinstance(key, str):
             # important: one must call the field's getter
-            return self._fields[key].__get__(self, self.env.registry[self._name])
+            return self._fields[key].__get__(self, type(self))
         elif isinstance(key, slice):
             return self.browse(self._ids[key])
         else:

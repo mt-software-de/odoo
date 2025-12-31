@@ -8,8 +8,8 @@
 # Braulio D. López Vázquez <bdl@odoo.com>, 2023
 # Lucia Pacheco, 2023
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
+# Fernanda Alvarez, 2023
 # Iran Villalobos López, 2023
-# Fernanda Alvarez, 2024
 # 
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-16 09:00+0000\n"
 "PO-Revision-Date: 2020-09-07 08:19+0000\n"
-"Last-Translator: Fernanda Alvarez, 2024\n"
+"Last-Translator: Iran Villalobos López, 2023\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,7 +220,7 @@ msgid ""
 "            Manual actions may be needed."
 msgstr ""
 ".\n"
-"            Es posible que se necesiten acciones manuales."
+"            Puede que se necesiten acciones manuales."
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_orderpoint_snooze__predefined_date__day
@@ -651,7 +651,7 @@ msgstr "Acción"
 #: model:ir.model.fields,field_description:stock.field_stock_production_lot__message_needaction
 #: model:ir.model.fields,field_description:stock.field_stock_scrap__message_needaction
 msgid "Action Needed"
-msgstr "Se requiere una acción"
+msgstr "Acción requerida"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_location__active
@@ -2316,7 +2316,7 @@ msgstr ""
 #: model:ir.model.fields,help:stock.field_stock_quant__tracking
 #: model:ir.model.fields,help:stock.field_stock_scrap__tracking
 msgid "Ensure the traceability of a storable product in your warehouse."
-msgstr "Asegure la trazabilidad de los productos almacenables en su almacén."
+msgstr "Asegure la trazabilidad de un producto almacenable en su almacén"
 
 #. module: stock
 #. openerp-web
@@ -2490,7 +2490,7 @@ msgstr "Icono de Font Awesome ej. fa-tasks"
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_category__removal_strategy_id
 msgid "Force Removal Strategy"
-msgstr "Estrategia de remoción forzada"
+msgstr "Forzar estrategia de remoción"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint__qty_forecast
@@ -2679,7 +2679,7 @@ msgstr "Recepciones futuras"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
 msgid "Get a full traceability from vendors to customers"
-msgstr "Obtenga una trazabilidad completa de proveedores a clientes"
+msgstr "Obtenga una trazabilidad completa de vendedores a clientes"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
@@ -4189,7 +4189,7 @@ msgstr "No disponible"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_reorder_report_search
 msgid "Not Snoozed"
-msgstr "Sin posponer"
+msgstr "No pospuesto"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
@@ -6915,8 +6915,8 @@ msgid ""
 "The stock will be reserved for operations waiting for availability and the "
 "reordering rules will be triggered."
 msgstr ""
-"Se reservarán las existencias para operaciones que están en espera de "
-"disponibilidad y se activarán las reglas de reordenamiento."
+"Se reservarán las existencias para operaciones que están esperando "
+"disponibilidad y se activarán las reglas de reabastecimiento."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_rule__propagate_warehouse_id
@@ -6963,9 +6963,9 @@ msgid ""
 "location on the partner. "
 msgstr ""
 "Esta es la ubicación de destino predeterminada cuando crea una recolección "
-"de manera manual con este tipo de operación. Sin embargo, es posible "
-"cambiarla o que las rutas establezcan otra ubicación. Si está vacía, "
-"verificará la ubicación del cliente en el contacto."
+"manualmente con este tipo de operación. Sin embargo, es posible cambiarlo o "
+"que las rutas pongan otra ubicación. Si está vacío, verificará la ubicación "
+"del cliente en el partner."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type__default_location_src_id
@@ -7890,7 +7890,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_putaway_rule__location_in_id
 msgid "When product arrives in"
-msgstr "Cuando el producto llega a"
+msgstr "Cuando llega el producto"
 
 #. module: stock
 #: code:addons/stock/models/stock_rule.py:0

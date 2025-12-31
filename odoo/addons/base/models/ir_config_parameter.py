@@ -32,7 +32,6 @@ class IrConfigParameter(models.Model):
     _description = 'System Parameter'
     _rec_name = 'key'
     _order = 'key'
-    _allow_sudo_commands = False
 
     key = fields.Char(required=True, index=True)
     value = fields.Text(required=True)

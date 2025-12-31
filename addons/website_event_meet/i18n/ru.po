@@ -11,7 +11,6 @@
 # Ivan Kropotkin <yelizariev@itpp.dev>, 2021
 # Evgeniia Kotova, 2022
 # Alena Vlasova, 2022
-# Wil Odoo, 2024
 # 
 msgid ""
 msgstr ""
@@ -19,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 14:12+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Wil Odoo, 2024\n"
+"Last-Translator: Alena Vlasova, 2022\n"
 "Language-Team: Russian (https://app.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,13 +76,11 @@ msgid ""
 "<span>This room is not open right now!</span><br/>\n"
 "                        Join us here on the"
 msgstr ""
-"<span>Эта комната сейчас не открыта!</span><br/>\n"
-"                        Присоединяйтесь к нам здесь, на"
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
 msgid "A chat among"
-msgstr "Беседа между"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__active
@@ -102,7 +99,7 @@ msgstr "Все языки"
 #: model:ir.model.fields,field_description:website_event_meet.field_event_type__meeting_room_allow_creation
 #, python-format
 msgid "Allow Room Creation"
-msgstr "Разрешить создание комнат"
+msgstr ""
 
 #. module: website_event_meet
 #. openerp-web
@@ -137,13 +134,11 @@ msgid ""
 "Be sure you are ready to spend at least 10 minutes in the room if you want "
 "to initiate a new topic."
 msgstr ""
-"Убедитесь, что вы готовы провести в комнате не менее 10 минут, если хотите "
-"начать новую тему."
 
 #. module: website_event_meet
 #: model:event.meeting.room,name:website_event_meet.event_meeting_room_0
 msgid "Best wood for furniture"
-msgstr "Лучшая древесина для мебели"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__can_publish
@@ -160,7 +155,7 @@ msgstr "Вместимость"
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__chat_room_id
 msgid "Chat Room"
-msgstr "Чат-комната"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.community_main
@@ -168,8 +163,6 @@ msgid ""
 "Choose a topic that interests you and start talking with the community. "
 "<br/> Don't forget to setup your camera and microphone."
 msgstr ""
-"Выберите интересующую вас тему и начните общаться с сообществом. <br/> Не "
-"забудьте настроить камеру и микрофон."
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_card
@@ -186,12 +179,12 @@ msgstr "Создать"
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.community_aside
 msgid "Create a Room"
-msgstr "Создайте комнату"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.community_main
 msgid "Create one to get conversations going"
-msgstr "Создайте его, чтобы завязать разговор"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__create_uid
@@ -240,12 +233,12 @@ msgstr "Событие"
 #. module: website_event_meet
 #: model:ir.model,name:website_event_meet.model_event_meeting_room
 msgid "Event Meeting Room"
-msgstr "Конференц-зал для проведения мероприятий"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields.selection,name:website_event_meet.selection__website_event_menu__menu_type__meeting_room
 msgid "Event Meeting Room Menus"
-msgstr "Меню конференц-зала"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model,name:website_event_meet.model_event_type
@@ -285,12 +278,12 @@ msgstr "Опубликовано"
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_card
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
 msgid "Join us next time to chat about"
-msgstr "Присоединяйтесь к нам в следующий раз, чтобы поговорить о"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
 msgid "Join us there to chat about"
-msgstr "Присоединяйтесь к нам, чтобы поговорить о"
+msgstr ""
 
 #. module: website_event_meet
 #. openerp-web
@@ -334,18 +327,18 @@ msgstr "Недавняя активность"
 #: code:addons/website_event_meet/static/src/xml/website_event_meeting_room.xml:0
 #, python-format
 msgid "Launch a new topic"
-msgstr "Запустить новую тему"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,help:website_event_meet.field_event_event__meeting_room_allow_creation
 #: model:ir.model.fields,help:website_event_meet.field_event_type__meeting_room_allow_creation
 msgid "Let Visitors Create Rooms"
-msgstr "Позвольте посетителям создавать комнаты"
+msgstr ""
 
 #. module: website_event_meet
 #: model:event.meeting.room,summary:website_event_meet.event_meeting_room_0
 msgid "Let's talk about wood types for furniture"
-msgstr "Давайте поговорим о видах древесины для мебели"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__room_max_capacity
@@ -356,19 +349,18 @@ msgstr "Макс. вместимость"
 #: model:ir.model.fields,help:website_event_meet.field_event_meeting_room__room_max_participant_reached
 msgid "Maximum number of participant reached in the room at the same time"
 msgstr ""
-"Максимальное количество участников, находящихся в комнате одновременно"
 
 #. module: website_event_meet
 #: model:ir.actions.act_window,name:website_event_meet.event_meeting_room_action
 #: model_terms:ir.ui.view,arch_db:website_event_meet.event_meeting_room_view_form
 #: model_terms:ir.ui.view,arch_db:website_event_meet.event_meeting_room_view_tree
 msgid "Meeting Room"
-msgstr "Конференц-зал"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_event__meeting_room_ids
 msgid "Meeting rooms"
-msgstr "Переговорные"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_website_event_menu__menu_type
@@ -378,17 +370,17 @@ msgstr "Тип меню"
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.community_main
 msgid "No Room Open"
-msgstr "Комната не открыта"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__room_participant_count
 msgid "Participant count"
-msgstr "Количество участников"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__room_max_participant_reached
 msgid "Peak participants"
-msgstr "Участники пика"
+msgstr ""
 
 #. module: website_event_meet
 #: model:event.meeting.room,name:website_event_meet.event_meeting_room_1
@@ -403,7 +395,7 @@ msgstr "Отчетность"
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__room_is_full
 msgid "Room Is Full"
-msgstr "Комната заполнена"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_card
@@ -413,36 +405,34 @@ msgstr ""
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__room_name
 msgid "Room Name"
-msgstr "Название номера"
+msgstr ""
 
 #. module: website_event_meet
 #. openerp-web
 #: code:addons/website_event_meet/static/src/xml/website_event_meeting_room.xml:0
 #, python-format
 msgid "Room Topic"
-msgstr "Тема номера"
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_event__meeting_room_count
 msgid "Room count"
-msgstr "Количество комнат"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.community_aside
 msgid "Room creation will be available when event starts at"
-msgstr "Создание номеров будет доступно после начала мероприятия в"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.event_event_view_form
 msgid "Rooms"
-msgstr "Комнаты"
+msgstr ""
 
 #. module: website_event_meet
 #: model:event.meeting.room,summary:website_event_meet.event_meeting_room_1
 msgid "Share your tips to reduce your ecological footprint using wood."
 msgstr ""
-"Поделитесь своими советами по уменьшению экологического следа при "
-"использовании древесины."
 
 #. module: website_event_meet
 #. openerp-web
@@ -467,7 +457,7 @@ msgstr "Описание"
 #: code:addons/website_event_meet/static/src/xml/website_event_meeting_room.xml:0
 #, python-format
 msgid "Target People"
-msgstr "Целевые люди"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
@@ -502,7 +492,7 @@ msgstr "Неопубликованный"
 #: model:event.meeting.room,summary:website_event_meet.event_meeting_room_2
 msgid ""
 "Venez partager vos meubles préférés et l'utilisation que vous en faites."
-msgstr "Расскажите о своих любимых предметах и о том, как вы их используете."
+msgstr ""
 
 #. module: website_event_meet
 #: model:ir.model.fields,field_description:website_event_meet.field_event_meeting_room__website_published
@@ -512,7 +502,7 @@ msgstr "Видимый на текущем сайте"
 #. module: website_event_meet
 #: model:event.meeting.room,name:website_event_meet.event_meeting_room_2
 msgid "Vos meubles préférés ?"
-msgstr "Какие предметы вы предпочитаете?"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.community_aside
@@ -532,7 +522,7 @@ msgstr "URL Веб-сайта"
 #. module: website_event_meet
 #: model:event.meeting.room,target_audience:website_event_meet.event_meeting_room_2
 msgid "client(s)"
-msgstr "клиент(ы)"
+msgstr ""
 
 #. module: website_event_meet
 #. openerp-web
@@ -540,7 +530,7 @@ msgstr "клиент(ы)"
 #: model_terms:ir.ui.view,arch_db:website_event_meet.event_meeting_room_view_form
 #, python-format
 msgid "e.g. Accountants"
-msgstr "например, бухгалтеры"
+msgstr ""
 
 #. module: website_event_meet
 #. openerp-web
@@ -556,12 +546,12 @@ msgstr "например, Финансы"
 #: model_terms:ir.ui.view,arch_db:website_event_meet.event_meeting_room_view_form
 #, python-format
 msgid "e.g. Let's talk about Corporate Finance"
-msgstr "например, давайте поговорим о корпоративных финансах"
+msgstr ""
 
 #. module: website_event_meet
 #: model:event.meeting.room,target_audience:website_event_meet.event_meeting_room_1
 msgid "ecologist(s)"
-msgstr "эколог(ы)"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_card
@@ -569,8 +559,6 @@ msgid ""
 "is over.\n"
 "                        <br/>"
 msgstr ""
-"закончилась.\n"
-"                       <br/>"
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
@@ -578,8 +566,6 @@ msgid ""
 "is over.\n"
 "                <br/>"
 msgstr ""
-"закончилась.\n"
-"               <br/>"
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_card
@@ -589,19 +575,19 @@ msgstr "участник(и)"
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
 msgid "starts in"
-msgstr "начинается в"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_main
 msgid "starts on"
-msgstr "начинается"
+msgstr ""
 
 #. module: website_event_meet
 #: model_terms:ir.ui.view,arch_db:website_event_meet.meeting_room_card
 msgid "to have a chat with us!"
-msgstr "чтобы пообщаться с нами!"
+msgstr ""
 
 #. module: website_event_meet
 #: model:event.meeting.room,target_audience:website_event_meet.event_meeting_room_0
 msgid "wood expert(s)"
-msgstr "эксперт(ы) по древесине"
+msgstr ""

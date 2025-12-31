@@ -11,7 +11,6 @@
 # Odoo Thaidev <odoothaidev@gmail.com>, 2020
 # kittipot anuwet <pipemsn1@gmail.com>, 2021
 # Wichanon Jamwutthipreecha, 2021
-# Rasareeyar Lappiam, 2023
 # 
 msgid ""
 msgstr ""
@@ -19,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 14:13+0000\n"
 "PO-Revision-Date: 2020-09-07 08:21+0000\n"
-"Last-Translator: Rasareeyar Lappiam, 2023\n"
+"Last-Translator: Wichanon Jamwutthipreecha, 2021\n"
 "Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,10 +201,6 @@ msgid ""
 "                    aerospace, environmental and applied fluid dynamics, and\n"
 "                    turbomachinery and propulsion)."
 msgstr ""
-"องค์กรการศึกษาและวิทยาศาสตร์ระหว่างประเทศ\n"
-"                    ที่ไม่แสวงหาผลกำไร มีแผนก 3 แผนก (วิชาการบินและ\n"
-"                    การบินและอวกาศ สิ่งแวดล้อม และพลศาสตร์ของไหลประยุกต์ และ\n"
-"                    เครื่องจักรเทอร์โบและระบบขับเคลื่อน)"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track7
@@ -619,9 +614,6 @@ msgid ""
 "                Chain processes in order to make our customers more productive,\n"
 "                responsive and profitable."
 msgstr ""
-"Deco Addict ออกแบบ พัฒนา บูรณาการและรองรับกระบวนการทรัพยากรบุคคล\n"
-"                และซัพพลายเชน เพื่อให้ลูกค้าของเรามีประสิทธิผล\n"
-"                ตอบสนองได้ไวและทำกำไรได้มากขึ้น"
 
 #. module: website_event_track
 #: model_terms:event.sponsor,website_description:website_event_track.event_7_sponsor_1
@@ -633,9 +625,6 @@ msgid ""
 "                with Open Sources software to manage their businesses. Our\n"
 "                consultants are experts in the following areas:"
 msgstr ""
-"Deco Addict ผสานรวมกับระบบ ERP สำหรับบริษัทระดับโลกและรองรับ PME\n"
-"               ด้วยซอฟต์แวร์แบบโอเพ่นซอร์ส เพื่อจัดการธุรกิจของพวกเขา\n"
-"               ที่ปรึกษาของเราเป็นผู้เชี่ยวชาญในด้านต่อไปนี้:"
 
 #. module: website_event_track
 #: model_terms:ir.actions.act_window,help:website_event_track.event_track_stage_action
@@ -1180,7 +1169,7 @@ msgstr "บทนำ"
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_0
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_3
 msgid "Inventory and Warehouse management"
-msgstr "การจัดการสินค้าคงคลังและคลังสินค้า"
+msgstr ""
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__is_accepted
@@ -1258,11 +1247,6 @@ msgid ""
 "                    series) and encourages \"training in research through\n"
 "                    research\"."
 msgstr ""
-"ให้การศึกษาระดับสูงกว่าปริญญาตรีในสาขาพลศาสตร์ของไหลเวียน\n"
-"                  (ปริญญาโทการวิจัยด้านพลศาสตร์ของไหล อดีต \"หลักสูตร\n"
-"                  อนุปริญญา\" หลักสูตรปริญญาเอก โปรแกรม stagiaire และชุดการ\n"
-"                  บรรยาย) และส่งเสริม \"การฝึกอบรมในการวิจัยผ่าน\n"
-"                  การวิจัย\""
 
 #. module: website_event_track
 #: model_terms:event.sponsor,website_description:website_event_track.event_7_sponsor_2
@@ -1278,14 +1262,6 @@ msgid ""
 "                    mainly by governmental and international agencies as well\n"
 "                    as industries."
 msgstr ""
-"ดำเนินการและส่งเสริมการวิจัยในสาขาพลศาสตร์ของการไหลเวียน \n"
-"                    มีอุโมงค์ลม เครื่องจักรเทอร์โบ และเครื่องมือทดสอบเฉพาะทาง\n"
-"                    อื่นๆ ประมาณห้าสิบแบบซึ่งบางแห่งมีเอกลักษณ์เฉพาะตัว\n"
-"                    หรือใหญ่ที่สุดในโลกการวิจัยอย่างกว้างขวางเกี่ยวกับการทดลอง\n"
-"                    การคำนวณและทฤษฎีของการไหลของก๊าซและของเหลว\n"
-"                    ดำเนินการภายใต้การดูแลของคณาจารย์และวิศวกรวิจัย \n"
-"                    ซึ่งได้รับการสนับสนุนจากหน่วยงานภาครัฐและระหว่างประเทศ\n"
-"                    เป็นหลักตลอดจนอุตสาหกรรมต่างๆ"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track__partner_function
@@ -1460,7 +1436,7 @@ msgstr "ทำเกจ์วัดกลาง"
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_0
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_3
 msgid "Materials Management"
-msgstr "การจัดการวัสดุ"
+msgstr ""
 
 #. module: website_event_track
 #: model:ir.model.fields.selection,name:website_event_track.selection__event_track__priority__1
@@ -1659,11 +1635,6 @@ msgid ""
 "                installed IT software into account. That is why Idealis\n"
 "                Consulting delivers excellence in HR and SC Management."
 msgstr ""
-"ผู้เชี่ยวชาญของเราสร้างสรรค์และพัฒนาสิ่งที่ตรงตาม\n"
-"               ความต้องการธุรกิจของคุณ พวกเขาสร้างสภาพแวดล้อมเทคนิคใหม่สำหรับ\n"
-"               บริษัทของคุณ แต่พวกเขาจะใส่ใจถึงซอฟต์แวร์ IT ที่ติดตั้งไว้แล้วเสมอ\n"
-"               นั่นเป็นเหตุผลที่ Idealis Consulting ส่งมอบความเป็นเลิศ\n"
-"              ในการจัดการทรัพยากรบุคคลและการจัดการซัพพลายเชน"
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_track_visitor__partner_id
@@ -1682,7 +1653,7 @@ msgstr "โปรแกรม ร่วมเป็นพาร์ทเนอ�
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_0
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_3
 msgid "Personnel Administration"
-msgstr "การบริหารงานบุคคล"
+msgstr ""
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_sponsor__partner_phone
@@ -1835,7 +1806,7 @@ msgstr "ข้อผิดพลาดในการส่ง SMS"
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_0
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_3
 msgid "Sales and Distribution"
-msgstr "การขายและการจัดจำหน่าย"
+msgstr ""
 
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.agenda_main
@@ -2085,7 +2056,7 @@ msgstr "ป้ายกำกับ"
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_0
 #: model_terms:event.sponsor,website_description:website_event_track.event_sponsor_3
 msgid "Talent Management"
-msgstr "การจัดการผู้มีความสามารถ"
+msgstr ""
 
 #. module: website_event_track
 #: model_terms:ir.ui.view,arch_db:website_event_track.event_track_proposal

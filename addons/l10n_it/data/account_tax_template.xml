@@ -28,13 +28,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -65,13 +63,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -103,13 +99,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -141,13 +135,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -212,13 +204,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -250,13 +240,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -289,13 +277,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -328,13 +314,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -353,7 +337,7 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'plus_report_line_ids': [ref('tax_report_line_vp3')],
+                'plus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -364,7 +348,6 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -402,13 +385,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -440,13 +421,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -479,13 +458,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -518,13 +495,11 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
         ]"/>
     </record>
@@ -543,7 +518,7 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'plus_report_line_ids': [ref('tax_report_line_vp3')],
+                'plus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -554,7 +529,6 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -589,7 +563,6 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -624,7 +597,6 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp2')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -657,7 +629,6 @@
             (0,0, {
                 'factor_percent': 100,
                 'repartition_type': 'base',
-                'minus_report_line_ids': [ref('tax_report_line_vp3')],
             }),
             (0,0, {
                 'factor_percent': 100,
@@ -707,13 +678,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -757,13 +726,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -808,13 +775,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -859,13 +824,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -909,13 +872,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -961,13 +922,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1011,13 +970,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1062,13 +1019,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1113,13 +1068,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1163,13 +1116,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1215,13 +1166,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1265,13 +1214,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1316,13 +1263,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1367,13 +1312,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>
@@ -1417,13 +1360,11 @@
                 'factor_percent': 100,
                 'repartition_type': 'tax',
                 'account_id': ref('1601'),
-                'minus_report_line_ids': [ref('tax_report_line_vp5')],
             }),
             (0,0, {
                 'factor_percent': -100,
                 'repartition_type': 'tax',
                 'account_id': ref('2601'),
-                'plus_report_line_ids': [ref('tax_report_line_vp4')],
             }),
         ]"/>
     </record>

@@ -9,7 +9,7 @@
 # Braulio D. López Vázquez <bdl@odoo.com>, 2023
 # Lucia Pacheco, 2023
 # Iran Villalobos López, 2023
-# Fernanda Alvarez, 2024
+# Fernanda Alvarez, 2023
 # 
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-07 14:40+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Fernanda Alvarez, 2024\n"
+"Last-Translator: Fernanda Alvarez, 2023\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3640,9 +3640,9 @@ msgid ""
 "                                to keep his hands full by participating in the development of the software,\n"
 "                                marketing, and customer experience strategies."
 msgstr ""
-"Tony es el fundador y director, además también impulsa a la empresa. Le encanta\n"
-"                                participar en el desarrollo del software y en\n"
-"                                las estrategias de marketing y de experiencia del cliente."
+"Fundador y chef visionario, Tony es la fuerza motriz detrás de la empresa. Le encanta\n"
+"                                mantenerse ocupado al participar en el desarrollo del software,\n"
+"                                marketing, y estrategias de experiencia de clientes."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -4660,7 +4660,7 @@ msgstr "Contáctenos y juntos mejoraremos su empresa."
 #: code:addons/website/static/src/xml/website.seo.xml:0
 #, python-format
 msgid "Keep empty to use default value"
-msgstr "Déjelo vacío para usar el valor predeterminado"
+msgstr "Mantener vacío para usar el valor predeterminado"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_attachment__key
@@ -7680,7 +7680,7 @@ msgstr "Consejo: Interactúe con sus visitantes para convertirlos en leads"
 #: model:digest.tip,name:website.digest_tip_website_2
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_2
 msgid "Tip: Search Engine Optimization (SEO)"
-msgstr "Consejo: optimización para motores de búsqueda (SEO)"
+msgstr "Consejo: Optimización de motores de búsqueda (SEO)"
 
 #. module: website
 #: model:digest.tip,name:website.digest_tip_website_1

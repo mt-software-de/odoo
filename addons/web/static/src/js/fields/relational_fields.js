@@ -598,7 +598,7 @@ var FieldMany2One = AbstractField.extend({
 
         // Format results to fit the options dropdown
         let values = results.map((result) => {
-            const [id, fullName] = result;
+            const [id, fullName, classname] = result;
             const displayName = this._getDisplayName(fullName).trim();
             result[1] = displayName;
             return {
@@ -606,11 +606,12 @@ var FieldMany2One = AbstractField.extend({
                 label: escape(displayName) || data.noDisplayContent,
                 value: displayName,
                 name: displayName,
+                classname: classname,
             };
         });
 
         // Add "Search more..." option if results count is higher than the limit
-        if (this.limit < values.length) {
+        if (this.limit < values.length || this.nodeOptions.show_search_more) {
             values = this._manageSearchMore(values, value, domain, context);
         }
         if (!this.can_create) {

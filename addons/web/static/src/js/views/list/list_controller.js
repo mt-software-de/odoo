@@ -554,10 +554,10 @@ var ListController = BasicController.extend({
                         // in case the selection is changed. If there are changes
                         // and the list was multi-editable, we do not want to select
                         // the next row.
-                        this.selectedRecords = [];
+                        //this.selectedRecords = [];
                         await this._updateRendererState(state, {
                             keepWidths: true,
-                            selectedRecords: [],
+                            //selectedRecords: [],
                         });
                         this._updateSelectionBox();
                         this.renderer.focusCell(recordId, node);

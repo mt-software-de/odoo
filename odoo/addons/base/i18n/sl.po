@@ -18,8 +18,6 @@
 # Tadej Lupšina <tadej@hbs.si>, 2022
 # Tomaž Jug <tomaz@editor.si>, 2023
 # Steven, 2023
-# Neun Pro, 2023
-# Katja Deržič, 2024
 # 
 msgid ""
 msgstr ""
@@ -27,7 +25,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Katja Deržič, 2024\n"
+"Last-Translator: Steven, 2023\n"
 "Language-Team: Slovenian (https://app.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6563,7 +6561,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__accesses_count
 msgid "# Access Rights"
-msgstr "Pravice dostopa"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__groups_count
@@ -6573,7 +6571,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__rules_count
 msgid "# Record Rules"
-msgstr "Pravila zapisa"
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -7980,7 +7978,7 @@ msgstr "Aktivno"
 #: model:ir.model.fields,field_description:base.field_res_partner__active_lang_count
 #: model:ir.model.fields,field_description:base.field_res_users__active_lang_count
 msgid "Active Lang Count"
-msgstr "Število aktivnih jezikov"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_sequence__number_next_actual
@@ -9044,7 +9042,7 @@ msgstr "Ponudnik plačilne storitve Authorize.Net"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module_dependency__auto_install_required
 msgid "Auto Install Required"
-msgstr "Zahtevana samodejna namestitev"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_partner_autocomplete
@@ -9601,7 +9599,7 @@ msgstr "Povezovalni tip"
 #: model:ir.model.fields,field_description:base.field_ir_actions_server__binding_view_types
 #: model:ir.model.fields,field_description:base.field_ir_cron__binding_view_types
 msgid "Binding View Types"
-msgstr "Vrste vezanih pogledov"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_blog
@@ -10587,7 +10585,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_reset_view_arch_wizard__compare_view_id
 msgid "Compare To View"
-msgstr "Primerjaj za ogled"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_project_timesheet_forecast_sale
@@ -11667,7 +11665,7 @@ msgstr "Nadzorne  plošče"
 #: model:ir.module.category,name:base.module_category_productivity_data_cleaning
 #: model:ir.module.module,shortdesc:base.module_data_cleaning
 msgid "Data Cleaning"
-msgstr "Čiščenje podatkov"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_data_merge
@@ -13179,7 +13177,7 @@ msgstr "Executive 4   7.5 x 10 inches, 190.5 x 254 mm"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__group_expand
 msgid "Expand Groups"
-msgstr "Razširi skupine"
+msgstr ""
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_human_resources_expenses
@@ -13692,7 +13690,7 @@ msgstr "Opis polj"
 #: model:ir.model,name:base.model_ir_model_fields_selection
 #: model:ir.ui.menu,name:base.ir_model_model_fields_selection
 msgid "Fields Selection"
-msgstr "Izbor polj"
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/ir_model.py:0
@@ -15972,12 +15970,6 @@ msgid "Invalid 'group by' parameter"
 msgstr "Neveljaven parameter 'Združi po'"
 
 #. module: base
-#: code:addons/template_inheritance.py:0
-#, python-format
-msgid "Invalid Expression while parsing xpath %r"
-msgstr ""
-
-#. module: base
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid JSON format in Default Value field."
@@ -16525,7 +16517,7 @@ msgstr "Laos"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__lastcall
 msgid "Last Execution Date"
-msgstr "Zadnji datum izvedbe"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field__unknown____last_update
@@ -16839,7 +16831,7 @@ msgstr "Postavitev v poročilih"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_crm_iap_lead_enrich
 msgid "Lead Enrichment"
-msgstr "Lead Enrichment"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_crm_iap_lead
@@ -17301,7 +17293,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.menu,name:base.menu_module_tree
 msgid "Main Apps"
-msgstr "Glavne aplikacije"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_sequence_date_range__sequence_id
@@ -22066,7 +22058,7 @@ msgstr "Povezano polje"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__relation
 msgid "Related Model"
-msgstr "Povezani model"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__partner_id
@@ -22289,7 +22281,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_reset_view_arch_wizard__reset_mode
 msgid "Reset Mode"
-msgstr "Način ponastavitve"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.reset_view_arch_wizard_view
@@ -23022,7 +23014,7 @@ msgstr "Možnosti izbire"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__selection
 msgid "Selection Options (Deprecated)"
-msgstr "Možnosti izbire (zastarelo)"
+msgstr ""
 
 #. module: base
 #: model:ir.model.constraint,message:base.constraint_ir_model_fields_selection_selection_field_uniq
@@ -23134,14 +23126,6 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_ups
-msgid ""
-"This is the legacy integration with UPS that is no longer supported. Please "
-"install the new \"UPS Shipping\" module and uninstall this one as soon as "
-"possible. This integration will stop working in 2024."
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,summary:base.module_delivery_ups_rest
 msgid "Send your shippings through UPS and track them online"
 msgstr ""
 
@@ -24953,7 +24937,7 @@ msgstr "Tema"
 #: model:ir.ui.menu,name:base.menu_theme_store
 #: model:ir.ui.menu,name:base.theme_store
 msgid "Theme Store"
-msgstr "Trgovina s temami"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.base_partner_merge_automatic_wizard_form
@@ -24974,7 +24958,7 @@ msgstr ""
 #: model:ir.actions.act_url,name:base.action_third_party
 #: model:ir.ui.menu,name:base.menu_third_party
 msgid "Third-Party Apps"
-msgstr "Aplikacije drugih ponudnikov"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_lang__iso_code
@@ -25796,11 +25780,6 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
-msgid "UPS Shipping (Legacy)"
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,shortdesc:base.module_delivery_ups_rest
 msgid "UPS Shipping"
 msgstr ""
 

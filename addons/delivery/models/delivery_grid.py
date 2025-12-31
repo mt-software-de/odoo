@@ -87,6 +87,7 @@ class ProviderGrid(models.Model):
         self = self.sudo()
         order = order.sudo()
         total = weight = volume = quantity = 0
+        ext_vals = {}
         total_delivery = 0.0
         for line in order.order_line:
             if line.state == 'cancel':
@@ -101,13 +102,19 @@ class ProviderGrid(models.Model):
             weight += (line.product_id.weight or 0.0) * qty
             volume += (line.product_id.volume or 0.0) * qty
             quantity += qty
+
+            # Hook to allow new values to be calculated based on sale line
+            self._extend_vals(ext_vals, line, qty)
         total = (order.amount_total or 0.0) - total_delivery
 
         total = self._compute_currency(order, total, 'pricelist_to_company')
 
-        return self._get_price_from_picking(total, weight, volume, quantity)
+        return self._get_price_from_picking(total, weight, volume, quantity, ext_vals)
 
-    def _get_price_dict(self, total, weight, volume, quantity):
+    def _extend_vals(self, ext_vals, line, qty):
+        pass
+
+    def _get_price_dict(self, total, weight, volume, quantity, ext_vals=None):
         '''Hook allowing to retrieve dict to be used in _get_price_from_picking() function.
         Hook to be overridden when we need to add some field to product and use it in variable factor from price rules. '''
         return {
@@ -115,13 +122,15 @@ class ProviderGrid(models.Model):
             'volume': volume,
             'weight': weight,
             'wv': volume * weight,
-            'quantity': quantity
+            'quantity': quantity,
+            # Last position to overwrite previous values if needed
+            **ext_vals,
         }
 
-    def _get_price_from_picking(self, total, weight, volume, quantity):
+    def _get_price_from_picking(self, total, weight, volume, quantity, ext_vals=None):
         price = 0.0
         criteria_found = False
-        price_dict = self._get_price_dict(total, weight, volume, quantity)
+        price_dict = self._get_price_dict(total, weight, volume, quantity, ext_vals)
         if self.free_over and total >= self.amount:
             return 0
         for line in self.price_rule_ids:

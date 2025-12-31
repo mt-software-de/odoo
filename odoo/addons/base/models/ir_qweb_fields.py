@@ -743,10 +743,10 @@ class QwebView(models.AbstractModel):
 
     @api.model
     def record_to_html(self, record, field_name, options):
-        if field_name not in record._fields:
+        if not getattr(record, field_name):
             return None
 
-        view = record[field_name]
+        view = getattr(record, field_name)
 
         if view._name != "ir.ui.view":
             _logger.warning("%s.%s must be a 'ir.ui.view' model." % (record, field_name))

@@ -432,7 +432,7 @@ class BaseAutomation(models.Model):
             """ Patch method `name` on `model`, unless it has been patched already. """
             if model not in patched_models[name]:
                 patched_models[name].add(model)
-                ModelClass = model.env.registry[model._name]
+                ModelClass = type(model)
                 origin = getattr(ModelClass, name)
                 method.origin = origin
                 wrapped = api.propagate(origin, method)

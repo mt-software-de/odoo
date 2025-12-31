@@ -1185,7 +1185,7 @@ def load_test_file_py(registry, test_file):
                     _logger.log(logging.INFO, 'running tests %s.', mod_mod.__name__)
                     suite(registry._assertion_report)
                     if not registry._assertion_report.wasSuccessful():
-                        _logger.error('%s: at least one error occurred in a test', test_file)
+                        raise Exception('%s: at least one error occurred in a test', test_file)
                     return
     finally:
         threading.currentThread().testing = False
@@ -1221,7 +1221,7 @@ def preload_registries(dbnames):
                 _logger.info("Starting post tests")
                 tests_before = registry._assertion_report.testsRun
                 with odoo.api.Environment.manage():
-                    result = loader.run_suite(loader.make_suite(module_names, 'post_install'))
+                    result = loader.run_suite(loader.make_suite(module_names, 'post_install', registry._assertion_report))
                     registry._assertion_report.update(result)
                 _logger.info("%d post-tests in %.2fs, %s queries",
                              registry._assertion_report.testsRun - tests_before,

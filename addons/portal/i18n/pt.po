@@ -15,7 +15,6 @@
 # Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2022
 # Jolien De Paepe, 2023
 # Manuela Silva <mmsrs@sky.com>, 2023
-# Peter Lawrence Romão <peterromao@yahoo.co.uk>, 2024
 # 
 msgid ""
 msgstr ""
@@ -23,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-29 13:46+0000\n"
 "PO-Revision-Date: 2020-09-07 08:16+0000\n"
-"Last-Translator: Peter Lawrence Romão <peterromao@yahoo.co.uk>, 2024\n"
+"Last-Translator: Manuela Silva <mmsrs@sky.com>, 2023\n"
 "Language-Team: Portuguese (https://app.transifex.com/odoo/teams/41243/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,13 +54,11 @@ msgid ""
 "<i class=\"fa fa-chevron-left\" role=\"img\" aria-label=\"Previous\" "
 "title=\"Previous\"/>"
 msgstr ""
-"<i class=\"fa fa-chevron-left\" role=\"img\" aria-label=\"Previous\" "
-"title=\"Previous\"/>"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.record_pager
 msgid "<i class=\"fa fa-chevron-right\" role=\"img\" aria-label=\"Next\" title=\"Next\"/>"
-msgstr "<i class=\"fa fa-chevron-right\" role=\"img\" aria-label=\"Next\" title=\"Next\"/>"
+msgstr ""
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_layout
@@ -453,8 +450,6 @@ msgid ""
 "Currently available to everyone viewing this document, click to restrict to "
 "internal employees."
 msgstr ""
-"Actualmente disponível para todos que visualizem este documento, clique para"
-" restringir a funcionários internos."
 
 #. module: portal
 #. openerp-web
@@ -464,8 +459,6 @@ msgid ""
 "Currently restricted to internal employees, click to make it available to "
 "everyone viewing this document."
 msgstr ""
-"Actualmente restrito a funcionários internos, clique para o tornar "
-"disponível para todos os que visualizam este documento."
 
 #. module: portal
 #: model:ir.model.fields,help:portal.field_portal_mixin__access_url
@@ -538,7 +531,7 @@ msgstr "Email Thread"
 #: code:addons/portal/static/src/xml/portal_chatter.xml:0
 #, python-format
 msgid "Employees Only"
-msgstr "Só Para Funcionários"
+msgstr ""
 
 #. module: portal
 #. openerp-web
@@ -664,8 +657,6 @@ msgid ""
 "Model %(model_name)s does not support token signature, as it does not have "
 "%(field_name)s field."
 msgstr ""
-"O modelo %(model_name)s não suporta token signature porque não tem o campo "
-"%(field_name)s."
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.my_account_link
@@ -680,7 +671,7 @@ msgstr "Nome"
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_my_security
 msgid "New Password:"
-msgstr "Nova Palavra-passe:"
+msgstr ""
 
 #. module: portal
 #. openerp-web
@@ -745,12 +736,12 @@ msgstr "URL de Acesso Portal"
 #. module: portal
 #: model:ir.model,name:portal.model_portal_mixin
 msgid "Portal Mixin"
-msgstr "Mixin Portal"
+msgstr ""
 
 #. module: portal
 #: model:ir.model,name:portal.model_portal_share
 msgid "Portal Sharing"
-msgstr "Partilha de Portal"
+msgstr ""
 
 #. module: portal
 #: model:ir.model,name:portal.model_portal_wizard_user
@@ -901,14 +892,13 @@ msgstr "Obrigado!"
 #, python-format
 msgid "The attachment %s cannot be removed because it is linked to a message."
 msgstr ""
-"O anexo %s não pode ser removido porque está vinculado a uma mensagem."
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:0
 #, python-format
 msgid ""
 "The attachment %s cannot be removed because it is not in a pending state."
-msgstr "O anexo %s não pode ser removido porque não está no estado pendente."
+msgstr ""
 
 #. module: portal
 #: code:addons/portal/controllers/mail.py:0
@@ -923,7 +913,6 @@ msgstr ""
 msgid ""
 "The attachment does not exist or you do not have the rights to access it."
 msgstr ""
-"O anexo não existe ou não tem os direitos necessários para poder aceder."
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:0
@@ -931,7 +920,6 @@ msgstr ""
 msgid ""
 "The document does not exist or you do not have the rights to access it."
 msgstr ""
-"O documento não existe ou não tem os direitos necessários para aceder."
 
 #. module: portal
 #: code:addons/portal/controllers/portal.py:0
@@ -1003,7 +991,7 @@ msgstr ""
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_searchbar
 msgid "Toggle filters"
-msgstr "Alternar os filtros"
+msgstr ""
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard__user_ids
@@ -1166,7 +1154,7 @@ msgstr "Código Postal"
 #: code:addons/portal/static/src/xml/portal_chatter.xml:0
 #, python-format
 msgid "avatar"
-msgstr "avatar"
+msgstr ""
 
 #. module: portal
 #. openerp-web
@@ -1192,12 +1180,12 @@ msgstr "sessão iniciada"
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
 msgid "odoo"
-msgstr "odoo"
+msgstr ""
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_my_security
 msgid "password"
-msgstr "palavra-passe"
+msgstr ""
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_my_details

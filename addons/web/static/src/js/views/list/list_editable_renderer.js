@@ -1524,8 +1524,9 @@ ListRenderer.include({
         const $target = $(ev.currentTarget);
         const $tr = $target.closest('tr');
         const recordEditable = this._isRecordEditable($tr.data('id'));
+        const no_html_widget = $target.closest('td.o_data_cell').find('div.oe_form_field_html').length < 1;
 
-        if (recordEditable && ev.keyCode === $.ui.keyCode.ENTER && $tr.hasClass('o_selected_row')) {
+        if (recordEditable && ev.keyCode === $.ui.keyCode.ENTER && $tr.hasClass('o_selected_row') && no_html_widget) {
             // enter on a textarea for example, let it bubble
             return;
         }

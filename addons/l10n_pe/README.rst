@@ -16,9 +16,12 @@ Considerations.
 Chart of account:
 -----------------
 
-The tree of the CoA is done using account groups, the most common accounts 
-are available within their group, if you want to create a new account use 
-the groups as reference. 
+The tree of the CoA is done using account groups, all the accounts with move
+are available as groups but only the more common ones are available as actual
+accounts, if you want to create a new one use the group of accounts as
+reference.
+
+# TODO: Image showing what I am talking about.
 
 Taxes:
 ------
@@ -36,10 +39,7 @@ Taxes:
 We added on this module the 3 concepts in taxes (necessary for the EDI
 signature)
 
-EDI Peruvian Code: used to select the type of tax from the SUNAT
-EDI UNECE code: used to select the type of tax based on the United Nations
-Economic Commission
-EDI Affect. Reason: type of affectation to the IGV based on the Catalog 07
+# TODO: Describe new fields.
 
 Products:
 ---------

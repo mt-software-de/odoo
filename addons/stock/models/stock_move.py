@@ -1372,7 +1372,23 @@ class StockMove(models.Model):
                     # `qty_done` is in `ml.product_uom_id` and, as we will later increase
                     # the reserved quantity on the quants, convert it here in
                     # `product_id.uom_id` (the UOM of the quants is the UOM of the product).
-                    move_lines_in = move.move_orig_ids.filtered(lambda m: m.state == 'done').mapped('move_line_ids')
+
+                    #---
+                    #- FIX  look for origin moves from all related pickings
+
+                    move_in_ids = []
+                    origins = move.move_orig_ids
+                    while origins:
+                        move_in_ids += origins.ids
+                        new_origins = origins.move_dest_ids.move_orig_ids
+                        origins = new_origins.filtered(lambda move: move.id not in move_in_ids)
+                    moves_in = self.browse(move_in_ids)
+
+                    moves_in_done = moves_in.filtered(lambda m: m.state == "done")
+                    # move_lines_in = move.move_orig_ids.filtered(lambda m: m.state == 'done').mapped('move_line_ids')
+                    move_lines_in = moves_in_done.move_line_ids
+                    #---
+
                     keys_in_groupby = ['location_dest_id', 'lot_id', 'result_package_id', 'owner_id']
 
                     def _keys_in_sorted(ml):
@@ -1384,12 +1400,24 @@ class StockMove(models.Model):
                         for ml in g:
                             qty_done += ml.product_uom_id._compute_quantity(ml.qty_done, ml.product_id.uom_id)
                         grouped_move_lines_in[k] = qty_done
-                    move_lines_out_done = (move.move_orig_ids.mapped('move_dest_ids') - move)\
-                        .filtered(lambda m: m.state in ['done'])\
-                        .mapped('move_line_ids')
+
+                    #---
+                    #- FIX Get the moves lines out done, from all related origins
+                    moves_out = (moves_in.move_dest_ids - move)
+                    moves_out_done = moves_out.filtered(lambda m: m.state == "done")
+                    # move_lines_out_done = (move.move_orig_ids.mapped('move_dest_ids') - move)\
+                    #     .filtered(lambda m: m.state in ['done'])\
+                    #     .mapped('move_line_ids')
+                    move_lines_out_done = moves_out_done.move_line_ids
+                    #---
+
                     # As we defer the write on the stock.move's state at the end of the loop, there
                     # could be moves to consider in what our siblings already took.
-                    moves_out_siblings = move.move_orig_ids.mapped('move_dest_ids') - move
+                    #---
+                    #- FIX get all the siblings
+                    # moves_out_siblings = move.move_orig_ids.mapped('move_dest_ids') - move
+                    moves_out_siblings = moves_out
+                    #---
                     moves_out_siblings_to_consider = moves_out_siblings & (StockMove.browse(assigned_moves_ids) + StockMove.browse(partially_available_moves_ids))
                     reserved_moves_out_siblings = moves_out_siblings.filtered(lambda m: m.state in ['partially_available', 'assigned'])
                     move_lines_out_reserved = (reserved_moves_out_siblings | moves_out_siblings_to_consider).mapped('move_line_ids')

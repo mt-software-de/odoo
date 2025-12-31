@@ -50,7 +50,7 @@
 # Talal Albahra <talal.albahra@outlook.com>, 2022
 # Niyas Raphy, 2022
 # islam abdelmaaboud <islamabdelmaaboud@gmail.com>, 2023
-# Malaz Abuidris <msea@odoo.com>, 2024
+# Malaz Abuidris <msea@odoo.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -58,7 +58,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 10:15+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Malaz Abuidris <msea@odoo.com>, 2024\n"
+"Last-Translator: Malaz Abuidris <msea@odoo.com>, 2023\n"
 "Language-Team: Arabic (https://app.transifex.com/odoo/teams/41243/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4248,7 +4248,7 @@ msgstr "الأصول المتداولة"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_current_liabilities
 msgid "Current Liabilities"
-msgstr "الالتزامات الجارية "
+msgstr "الالتزامات المتداولة "
 
 #. module: account
 #: model:account.account.type,name:account.data_unaffected_earnings
@@ -8144,7 +8144,7 @@ msgstr "الأصول غير المتداولة"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_non_current_liabilities
 msgid "Non-current Liabilities"
-msgstr "الالتزامات غير الجارية "
+msgstr "الالتزامات غير المتداولة "
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_tax__type_tax_use__none
@@ -9208,7 +9208,7 @@ msgstr "نسبة من السعر"
 #: model:ir.model.fields.selection,name:account.selection__account_tax__amount_type__division
 #: model:ir.model.fields.selection,name:account.selection__account_tax_template__amount_type__division
 msgid "Percentage of Price Tax Included"
-msgstr "نسبة من السعر شاملة الضريبة "
+msgstr "نسبة مشمولة بالفعل في السعر"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model_line__amount_type__percentage
@@ -11402,7 +11402,7 @@ msgstr "حساب الضريبة"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_journal
 msgid "Tax Declaration"
-msgstr "الإقرار الضريبي "
+msgstr "الإعلان الضريبي"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_tax__tax_exigibility
