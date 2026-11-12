@@ -93,16 +93,16 @@ EU_TAG_MAP = {
     },
     # Germany SKR03
     'de_skr03': {
-        'invoice_base_tag': None,
+        'invoice_base_tag': 'l10n_de.tax_report_de_tag_45_tag',
         'invoice_tax_tag': None,
-        'refund_base_tag': None,
+        'refund_base_tag': 'l10n_de.tax_report_de_tag_45_tag',
         'refund_tax_tag': None,
     },
     # Germany SKR04
     'de_skr04': {
-        'invoice_base_tag': None,
+        'invoice_base_tag': 'l10n_de.tax_report_de_tag_45_tag',
         'invoice_tax_tag': None,
-        'refund_base_tag': None,
+        'refund_base_tag': 'l10n_de.tax_report_de_tag_45_tag',
         'refund_tax_tag': None,
     },
     # Greece
